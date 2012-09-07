@@ -1,0 +1,306 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E898C2515FA989D000E9677 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E898C2415FA989D000E9677 /* UIKit.framework */; };
+		4E898C2715FA989D000E9677 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E898C2615FA989D000E9677 /* Foundation.framework */; };
+		4E898C2915FA989D000E9677 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E898C2815FA989D000E9677 /* CoreGraphics.framework */; };
+		4E898C2F15FA989D000E9677 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E898C2D15FA989D000E9677 /* InfoPlist.strings */; };
+		4E898C3115FA989D000E9677 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C3015FA989D000E9677 /* main.m */; };
+		4E898C3515FA989D000E9677 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C3415FA989D000E9677 /* AppDelegate.m */; };
+		4E898C3815FA989D000E9677 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E898C3615FA989D000E9677 /* MainStoryboard_iPhone.storyboard */; };
+		4E898C3B15FA989D000E9677 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E898C3915FA989D000E9677 /* MainStoryboard_iPad.storyboard */; };
+		4E898C3E15FA989D000E9677 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C3D15FA989D000E9677 /* MainViewController.m */; };
+		4E898C4115FA989D000E9677 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C4015FA989D000E9677 /* FlipsideViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4E898C2015FA989D000E9677 /* Chimera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chimera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E898C2415FA989D000E9677 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4E898C2615FA989D000E9677 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4E898C2815FA989D000E9677 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4E898C2C15FA989D000E9677 /* Chimera-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Chimera-Info.plist"; sourceTree = "<group>"; };
+		4E898C2E15FA989D000E9677 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4E898C3015FA989D000E9677 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E898C3215FA989D000E9677 /* Chimera-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Chimera-Prefix.pch"; sourceTree = "<group>"; };
+		4E898C3315FA989D000E9677 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4E898C3415FA989D000E9677 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4E898C3715FA989D000E9677 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		4E898C3A15FA989D000E9677 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		4E898C3C15FA989D000E9677 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		4E898C3D15FA989D000E9677 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		4E898C3F15FA989D000E9677 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
+		4E898C4015FA989D000E9677 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E898C1D15FA989D000E9677 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E898C2515FA989D000E9677 /* UIKit.framework in Frameworks */,
+				4E898C2715FA989D000E9677 /* Foundation.framework in Frameworks */,
+				4E898C2915FA989D000E9677 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E898C1515FA989D000E9677 = {
+			isa = PBXGroup;
+			children = (
+				4E898C2A15FA989D000E9677 /* Chimera */,
+				4E898C2315FA989D000E9677 /* Frameworks */,
+				4E898C2115FA989D000E9677 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4E898C2115FA989D000E9677 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E898C2015FA989D000E9677 /* Chimera.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E898C2315FA989D000E9677 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E898C2415FA989D000E9677 /* UIKit.framework */,
+				4E898C2615FA989D000E9677 /* Foundation.framework */,
+				4E898C2815FA989D000E9677 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E898C2A15FA989D000E9677 /* Chimera */ = {
+			isa = PBXGroup;
+			children = (
+				4E898C3315FA989D000E9677 /* AppDelegate.h */,
+				4E898C3415FA989D000E9677 /* AppDelegate.m */,
+				4E898C3615FA989D000E9677 /* MainStoryboard_iPhone.storyboard */,
+				4E898C3915FA989D000E9677 /* MainStoryboard_iPad.storyboard */,
+				4E898C3C15FA989D000E9677 /* MainViewController.h */,
+				4E898C3D15FA989D000E9677 /* MainViewController.m */,
+				4E898C3F15FA989D000E9677 /* FlipsideViewController.h */,
+				4E898C4015FA989D000E9677 /* FlipsideViewController.m */,
+				4E898C2B15FA989D000E9677 /* Supporting Files */,
+			);
+			path = Chimera;
+			sourceTree = "<group>";
+		};
+		4E898C2B15FA989D000E9677 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E898C2C15FA989D000E9677 /* Chimera-Info.plist */,
+				4E898C2D15FA989D000E9677 /* InfoPlist.strings */,
+				4E898C3015FA989D000E9677 /* main.m */,
+				4E898C3215FA989D000E9677 /* Chimera-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E898C1F15FA989D000E9677 /* Chimera */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E898C4415FA989D000E9677 /* Build configuration list for PBXNativeTarget "Chimera" */;
+			buildPhases = (
+				4E898C1C15FA989D000E9677 /* Sources */,
+				4E898C1D15FA989D000E9677 /* Frameworks */,
+				4E898C1E15FA989D000E9677 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Chimera;
+			productName = Chimera;
+			productReference = 4E898C2015FA989D000E9677 /* Chimera.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E898C1715FA989D000E9677 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = LesBandits.com;
+			};
+			buildConfigurationList = 4E898C1A15FA989D000E9677 /* Build configuration list for PBXProject "Chimera" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4E898C1515FA989D000E9677;
+			productRefGroup = 4E898C2115FA989D000E9677 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E898C1F15FA989D000E9677 /* Chimera */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E898C1E15FA989D000E9677 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E898C2F15FA989D000E9677 /* InfoPlist.strings in Resources */,
+				4E898C3815FA989D000E9677 /* MainStoryboard_iPhone.storyboard in Resources */,
+				4E898C3B15FA989D000E9677 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E898C1C15FA989D000E9677 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E898C3115FA989D000E9677 /* main.m in Sources */,
+				4E898C3515FA989D000E9677 /* AppDelegate.m in Sources */,
+				4E898C3E15FA989D000E9677 /* MainViewController.m in Sources */,
+				4E898C4115FA989D000E9677 /* FlipsideViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4E898C2D15FA989D000E9677 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E898C2E15FA989D000E9677 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4E898C3615FA989D000E9677 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E898C3715FA989D000E9677 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		4E898C3915FA989D000E9677 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E898C3A15FA989D000E9677 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4E898C4215FA989D000E9677 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4E898C4315FA989D000E9677 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E898C4515FA989D000E9677 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Chimera/Chimera-Prefix.pch";
+				INFOPLIST_FILE = "Chimera/Chimera-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4E898C4615FA989D000E9677 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Chimera/Chimera-Prefix.pch";
+				INFOPLIST_FILE = "Chimera/Chimera-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E898C1A15FA989D000E9677 /* Build configuration list for PBXProject "Chimera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E898C4215FA989D000E9677 /* Debug */,
+				4E898C4315FA989D000E9677 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E898C4415FA989D000E9677 /* Build configuration list for PBXNativeTarget "Chimera" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E898C4515FA989D000E9677 /* Debug */,
+				4E898C4615FA989D000E9677 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4E898C1715FA989D000E9677 /* Project object */;
+}
