@@ -15,6 +15,7 @@
     CGPoint _picturesOffset;
     int _currentIndex;
     double _currentOffset;
+    UITapGestureRecognizer * _tapGestureRecognizer;
 }
 
 @property (nonatomic,assign) int currentIndex;

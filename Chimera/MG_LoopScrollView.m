@@ -16,6 +16,8 @@
 -(void)initContent;
 -(int)getArrayIndexForPositionIndex:(int)positionIndex;
 -(int)numberOfPicturesBefore;
+-(void)blur;
+-(void)unblur;
 
 @end
 
@@ -33,7 +35,10 @@
     [self addSubview:self.blurredImagesContainer];
     self.normalImagesContainer.alpha = 1;
     self.blurredImagesContainer.alpha = 0;
+    _tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapScrollView:)];
+    [self addGestureRecognizer:_tapGestureRecognizer];
     self.delegate = self;
+    [self setShowsHorizontalScrollIndicator:NO];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -53,20 +58,25 @@
     return self;
 }
 
-
--(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    [UIView animateWithDuration:.1 animations:^{
-        self.normalImagesContainer.alpha = 0;
-        self.blurredImagesContainer.alpha = 1;
+-(void)blur {
+    [UIView animateWithDuration:.15 animations:^{
+        self.normalImagesContainer.alpha = 0.0;
+        self.blurredImagesContainer.alpha = 1.0;
     }];
 }
 
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    [UIView animateWithDuration:.1 animations:^{
-        self.normalImagesContainer.alpha = 1;
-        self.blurredImagesContainer.alpha = 0;
+-(void)unblur {
+    [UIView animateWithDuration:.15 animations:^{
+        self.normalImagesContainer.alpha = 1.0;
+        self.blurredImagesContainer.alpha = 0.0;
     }];
+}
 
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    [self blur];
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView.contentOffset.x > _currentOffset) {
         [self wentToNext];
     }
@@ -74,7 +84,6 @@
         [self wentToPrevious];
     }
     
-    _currentOffset = scrollView.contentOffset.x;
 }
 
 + (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
@@ -185,6 +194,8 @@
     if (self.contentOffset.x == _picturesSize.width * ([_slideImages count] -1)) {
         [self initContent];
     }
+    _currentOffset = self.contentOffset.x;
+    [self unblur];
 }
 
 -(void)wentToPrevious {
@@ -194,6 +205,8 @@
     if (!(self.contentOffset.x)) {
         [self initContent];
     }
+    _currentOffset = self.contentOffset.x;
+    [self unblur];
 }
 
 -(int)getArrayIndexForPositionIndex:(int)positionIndex {
@@ -210,6 +223,18 @@
 -(void)randomizePosition {
     int randNum = arc4random_uniform([_slideImages count]);
     self.currentIndex = randNum;
+}
+
+-(void)tapScrollView:(UIGestureRecognizer *)gestureRecognizer {
+    CGPoint touchLocation = [gestureRecognizer locationOfTouch:0 inView:self];
+    [self blur];
+    if (touchLocation.x - self.contentOffset.x < self.frame.size.width / 2) {
+        [self scrollRectToVisible:CGRectMake(self.contentOffset.x - self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:YES];
+        [self performSelector:@selector(wentToPrevious) withObject:self afterDelay:.5];
+    } else {
+        [self scrollRectToVisible:CGRectMake(self.contentOffset.x + self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:YES];
+        [self performSelector:@selector(wentToNext) withObject:self afterDelay:.5];
+    }
 }
 
 @end
