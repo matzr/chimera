@@ -10,6 +10,9 @@
 
 @interface MG_LoopScrollView()
 
+@property (nonatomic, strong) UIView* normalImagesContainer;
+@property (nonatomic, strong) UIView* blurredImagesContainer;
+
 -(void)initContent;
 -(int)getArrayIndexForPositionIndex:(int)positionIndex;
 -(int)numberOfPicturesBefore;
@@ -18,9 +21,18 @@
 
 @implementation MG_LoopScrollView
 
+@synthesize normalImagesContainer;
+@synthesize blurredImagesContainer;
+
 -(void)internalInit {
     _slideImages = [NSMutableArray array];
     _slideImages_blurred = [NSMutableArray array];
+    self.normalImagesContainer = [[UIView alloc]init];
+    self.blurredImagesContainer = [[UIView alloc]init];
+    [self addSubview:self.normalImagesContainer];
+    [self addSubview:self.blurredImagesContainer];
+    self.normalImagesContainer.alpha = 1;
+    self.blurredImagesContainer.alpha = 0;
     self.delegate = self;
 }
 
@@ -43,23 +55,26 @@
 
 
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    //TODO: substitute blurred images to normal ones
+    [UIView animateWithDuration:.1 animations:^{
+        self.normalImagesContainer.alpha = 0;
+        self.blurredImagesContainer.alpha = 1;
+    }];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"%f", scrollView.contentOffset.x);
+    [UIView animateWithDuration:.1 animations:^{
+        self.normalImagesContainer.alpha = 1;
+        self.blurredImagesContainer.alpha = 0;
+    }];
+
     if (scrollView.contentOffset.x > _currentOffset) {
-        NSLog(@"Moved to next");
         [self wentToNext];
     }
     if (scrollView.contentOffset.x < _currentOffset) {
-        NSLog(@"Moved to previous");
         [self wentToPrevious];
     }
     
     _currentOffset = scrollView.contentOffset.x;
-    //TODO: substitute normal images to blurred ones
-    //TODO: re-arrange pictures - reset index/offset
 }
 
 + (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
@@ -85,16 +100,27 @@
 
     totalContentWidth += _picturesSize.width * [_slideImages count];
     
+    CGRect frame = CGRectMake(0, 0, totalContentWidth, height);
     self.contentSize = CGSizeMake(totalContentWidth, height);
+    self.normalImagesContainer.frame = frame;
+    self.blurredImagesContainer.frame = frame;
+
     
-    for (int i = [self.subviews count] - 1; i >= 0; i -= 1) {
-        [((UIView*)([self.subviews objectAtIndex:i])) removeFromSuperview];
+    for (int i = [self.normalImagesContainer.subviews count] - 1; i >= 0; i -= 1) {
+        [((UIView*)([self.normalImagesContainer.subviews objectAtIndex:i])) removeFromSuperview];
+    }
+    
+    for (int i = [self.blurredImagesContainer.subviews count] - 1; i >= 0; i -= 1) {
+        [((UIView*)([self.blurredImagesContainer.subviews objectAtIndex:i])) removeFromSuperview];
     }
     
     for (int i = 0; i < [_slideImages count]; i += 1) {
         imageView = [[UIImageView alloc] initWithImage:[MG_LoopScrollView imageWithImage:[_slideImages objectAtIndex:[self getArrayIndexForPositionIndex:i-[self numberOfPicturesBefore]]] scaledToSize:_picturesSize]];
         imageView.frame = CGRectMake(currentX, _picturesOffset.y, imageView.frame.size.width, imageView.frame.size.height);
-        [self addSubview:imageView];
+        [self.normalImagesContainer addSubview:imageView];
+        imageView = [[UIImageView alloc] initWithImage:[MG_LoopScrollView imageWithImage:[_slideImages_blurred objectAtIndex:[self getArrayIndexForPositionIndex:i-[self numberOfPicturesBefore]]] scaledToSize:_picturesSize]];
+        imageView.frame = CGRectMake(currentX, _picturesOffset.y, imageView.frame.size.width, imageView.frame.size.height);
+        [self.blurredImagesContainer addSubview:imageView];
         currentX += imageView.frame.size.width;
     }
     
@@ -133,7 +159,7 @@
 
 -(void)setCurrentIndex:(int)newIndex {
     _currentIndex = newIndex;
-    //TODO: scroll to the appropriate position
+    [self initContent];
 }
 
 -(int)currentIndex {
@@ -179,6 +205,11 @@
     } else {
         return positionIndex;
     }
+}
+
+-(void)randomizePosition {
+    int randNum = arc4random_uniform([_slideImages count]);
+    self.currentIndex = randNum;
 }
 
 @end

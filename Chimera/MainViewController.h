@@ -7,7 +7,6 @@
 //
 
 #import "FlipsideViewController.h"
-#import "UILoopScrollView.h"
 #import "MG_LoopScrollView.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIPopoverControllerDelegate>

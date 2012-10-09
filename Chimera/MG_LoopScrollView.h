@@ -21,5 +21,6 @@
 
 -(void)loadPicturesWithPrefix:(NSString*)prefix;
 -(void)setPicturesSize:(CGSize)newSize andOffset:(CGPoint)newOffset;
+-(void)randomizePosition;
 
 @end

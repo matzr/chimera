@@ -46,19 +46,6 @@
     <resources>
         <image name="background_0001.png" width="640" height="1136"/>
     </resources>
-    <classes>
-        <class className="MG_LoopScrollView" superclassName="UIScrollView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MG_LoopScrollView.h"/>
-        </class>
-        <class className="MainViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="bottomLoopScrollView" candidateClass="MG_LoopScrollView"/>
-                <relationship kind="outlet" name="middleLoopScrollView" candidateClass="MG_LoopScrollView"/>
-                <relationship kind="outlet" name="topLoopScrollView" candidateClass="MG_LoopScrollView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

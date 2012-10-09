@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4E21290116151440003290E9 /* MG_LoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E21290016151440003290E9 /* MG_LoopScrollView.m */; };
-		4E25A9AF160AD7D7003A8ECB /* UILoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E25A9AE160AD7D7003A8ECB /* UILoopScrollView.m */; };
 		4E2A7028160A7059007AC03B /* part_body_blur_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A7003160A7059007AC03B /* part_body_blur_0001.png */; };
 		4E2A7029160A7059007AC03B /* part_body_blur_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A7004160A7059007AC03B /* part_body_blur_0002.png */; };
 		4E2A702A160A7059007AC03B /* part_body_blur_0003.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A7005160A7059007AC03B /* part_body_blur_0003.png */; };
@@ -69,8 +68,6 @@
 /* Begin PBXFileReference section */
 		4E2128FF16151440003290E9 /* MG_LoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MG_LoopScrollView.h; sourceTree = "<group>"; };
 		4E21290016151440003290E9 /* MG_LoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MG_LoopScrollView.m; sourceTree = "<group>"; };
-		4E25A9AD160AD7D7003A8ECB /* UILoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILoopScrollView.h; sourceTree = "<group>"; };
-		4E25A9AE160AD7D7003A8ECB /* UILoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILoopScrollView.m; sourceTree = "<group>"; };
 		4E2A7003160A7059007AC03B /* part_body_blur_0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_body_blur_0001.png; sourceTree = "<group>"; };
 		4E2A7004160A7059007AC03B /* part_body_blur_0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_body_blur_0002.png; sourceTree = "<group>"; };
 		4E2A7005160A7059007AC03B /* part_body_blur_0003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_body_blur_0003.png; sourceTree = "<group>"; };
@@ -244,8 +241,6 @@
 				4E898C3F15FA989D000E9677 /* FlipsideViewController.h */,
 				4E898C4015FA989D000E9677 /* FlipsideViewController.m */,
 				4E898C2B15FA989D000E9677 /* Supporting Files */,
-				4E25A9AD160AD7D7003A8ECB /* UILoopScrollView.h */,
-				4E25A9AE160AD7D7003A8ECB /* UILoopScrollView.m */,
 				4E2128FF16151440003290E9 /* MG_LoopScrollView.h */,
 				4E21290016151440003290E9 /* MG_LoopScrollView.m */,
 			);
@@ -388,7 +383,6 @@
 				4E898C3515FA989D000E9677 /* AppDelegate.m in Sources */,
 				4E898C3E15FA989D000E9677 /* MainViewController.m in Sources */,
 				4E898C4115FA989D000E9677 /* FlipsideViewController.m in Sources */,
-				4E25A9AF160AD7D7003A8ECB /* UILoopScrollView.m in Sources */,
 				4E21290116151440003290E9 /* MG_LoopScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,14 +486,14 @@
 		4E898C4615FA989D000E9677 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mathieu Gardere (A3W2R3YMYZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mathieu Gardere (A3W2R3YMYZ)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mathieu Gardere";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mathieu Gardere";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chimera/Chimera-Prefix.pch";
 				INFOPLIST_FILE = "Chimera/Chimera-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "37073985-EC6B-46F5-93CA-58ADCCF57259";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "37073985-EC6B-46F5-93CA-58ADCCF57259";
+				PROVISIONING_PROFILE = "59EBA744-63B1-4D7B-B09F-DFA9234C1FDC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "59EBA744-63B1-4D7B-B09F-DFA9234C1FDC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
