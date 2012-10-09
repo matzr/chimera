@@ -1,78 +1,45 @@
-//
-//  MainViewController.m
-//  Chimera
-//
-//  Created by Mathieu Gardère on 8/09/12.
-//  Copyright (c) 2012 LesBandits.com. All rights reserved.
-//
-
 #import "MainViewController.h"
-
-@interface MainViewController ()
-
-@end
 
 @implementation MainViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+@synthesize topLoopScrollView;
+@synthesize middleLoopScrollView;
+@synthesize bottomLoopScrollView;
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        // Custom initialization
+    }
+    return self;
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
+- (void)viewDidLoad {
+    [topLoopScrollView loadPicturesWithPrefix:@"part_head"];
+    [topLoopScrollView setPicturesSize:CGSizeMake(self.view.frame.size.width, 250) andOffset:CGPointMake(0, 0)];
+    [middleLoopScrollView loadPicturesWithPrefix:@"part_body"];
+    [middleLoopScrollView setPicturesSize:CGSizeMake(self.view.frame.size.width, 380) andOffset:CGPointMake(0, -100)];
+    [bottomLoopScrollView loadPicturesWithPrefix:@"part_feet"];
+    [bottomLoopScrollView setPicturesSize:CGSizeMake(self.view.frame.size.width, 350) andOffset:CGPointMake(0, -100)];
+}
+
+
+
+- (void)didReceiveMemoryWarning {
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    
+    // Release any cached data, images, etc that aren't in use.
+}
+
+- (void)viewDidUnload {
     // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-    } else {
-        return YES;
-    }
-}
 
-#pragma mark - Flipside View Controller
-
-- (void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        [self dismissModalViewControllerAnimated:YES];
-    } else {
-        [self.flipsidePopoverController dismissPopoverAnimated:YES];
-        self.flipsidePopoverController = nil;
-    }
-}
-
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    self.flipsidePopoverController = nil;
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showAlternate"]) {
-        [[segue destinationViewController] setDelegate:self];
-        
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            UIPopoverController *popoverController = [(UIStoryboardPopoverSegue *)segue popoverController];
-            self.flipsidePopoverController = popoverController;
-            popoverController.delegate = self;
-        }
-    }
-}
-
-- (IBAction)togglePopover:(id)sender
-{
-    if (self.flipsidePopoverController) {
-        [self.flipsidePopoverController dismissPopoverAnimated:YES];
-        self.flipsidePopoverController = nil;
-    } else {
-        [self performSegueWithIdentifier:@"showAlternate" sender:sender];
-    }
+-(void)flipsideViewControllerDidFinish:(FlipsideViewController *)controller {
+    
 }
 
 @end

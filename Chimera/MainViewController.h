@@ -7,9 +7,15 @@
 //
 
 #import "FlipsideViewController.h"
+#import "UILoopScrollView.h"
+#import "MG_LoopScrollView.h"
 
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIPopoverControllerDelegate>
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
+
+@property (strong, nonatomic) IBOutlet MG_LoopScrollView *topLoopScrollView;
+@property (strong, nonatomic) IBOutlet MG_LoopScrollView *middleLoopScrollView;
+@property (strong, nonatomic) IBOutlet MG_LoopScrollView *bottomLoopScrollView;
 
 @end
