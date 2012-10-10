@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSMutableArray+Shuffable.h"
+
+@protocol MG_LoopScrollViewDelegate
+
+-(void)selectionChanged:(id)scrollView;
+
+@end
+
 
 @interface MG_LoopScrollView : UIScrollView<UIScrollViewDelegate> {
     NSMutableArray * _slideImages;
     NSMutableArray * _slideImages_blurred;
+    NSMutableArray * _slideImageViews;
+    NSMutableArray * _slideImageViews_blurred;
     CGSize _picturesSize;
     CGPoint _picturesOffset;
     int _currentIndex;
@@ -19,9 +29,13 @@
 }
 
 @property (nonatomic,assign) int currentIndex;
+@property (nonatomic,strong) id<MG_LoopScrollViewDelegate> delegate;
 
 -(void)loadPicturesWithPrefix:(NSString*)prefix;
 -(void)setPicturesSize:(CGSize)newSize andOffset:(CGPoint)newOffset;
 -(void)randomizePosition;
 
 @end
+
+
+

@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UIView* blurredImagesContainer;
 
 -(void)initContent;
+-(void)rearrangeContent;
 -(int)getArrayIndexForPositionIndex:(int)positionIndex;
 -(int)numberOfPicturesBefore;
 -(void)blur;
@@ -25,10 +26,13 @@
 
 @synthesize normalImagesContainer;
 @synthesize blurredImagesContainer;
+@synthesize delegate;
 
 -(void)internalInit {
     _slideImages = [NSMutableArray array];
     _slideImages_blurred = [NSMutableArray array];
+    _slideImageViews = [NSMutableArray array];
+    _slideImageViews_blurred = [NSMutableArray array];
     self.normalImagesContainer = [[UIView alloc]init];
     self.blurredImagesContainer = [[UIView alloc]init];
     [self addSubview:self.normalImagesContainer];
@@ -59,21 +63,24 @@
 }
 
 -(void)blur {
-    [UIView animateWithDuration:.15 animations:^{
+    [UIView animateWithDuration:.1 animations:^{
         self.normalImagesContainer.alpha = 0.0;
+    }];
+    [UIView animateWithDuration:.05 animations:^{
         self.blurredImagesContainer.alpha = 1.0;
     }];
 }
 
 -(void)unblur {
-    [UIView animateWithDuration:.15 animations:^{
+    [UIView animateWithDuration:.05 animations:^{
         self.normalImagesContainer.alpha = 1.0;
+    }];
+    [UIView animateWithDuration:.1 animations:^{
         self.blurredImagesContainer.alpha = 0.0;
     }];
 }
 
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    [self blur];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -83,7 +90,6 @@
     if (scrollView.contentOffset.x < _currentOffset) {
         [self wentToPrevious];
     }
-    
 }
 
 + (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
@@ -98,7 +104,6 @@
     double totalContentWidth = 0;
     double height = 0;
     UIImageView *imageView;
-    double currentX = 0;
     
     if ([_slideImages count]) {
         if (!(_picturesSize.height)) {
@@ -114,6 +119,8 @@
     self.normalImagesContainer.frame = frame;
     self.blurredImagesContainer.frame = frame;
 
+    [_slideImageViews removeAllObjects];
+    [_slideImageViews_blurred removeAllObjects];
     
     for (int i = [self.normalImagesContainer.subviews count] - 1; i >= 0; i -= 1) {
         [((UIView*)([self.normalImagesContainer.subviews objectAtIndex:i])) removeFromSuperview];
@@ -125,16 +132,14 @@
     
     for (int i = 0; i < [_slideImages count]; i += 1) {
         imageView = [[UIImageView alloc] initWithImage:[MG_LoopScrollView imageWithImage:[_slideImages objectAtIndex:[self getArrayIndexForPositionIndex:i-[self numberOfPicturesBefore]]] scaledToSize:_picturesSize]];
-        imageView.frame = CGRectMake(currentX, _picturesOffset.y, imageView.frame.size.width, imageView.frame.size.height);
         [self.normalImagesContainer addSubview:imageView];
+        [_slideImageViews addObject:imageView];
         imageView = [[UIImageView alloc] initWithImage:[MG_LoopScrollView imageWithImage:[_slideImages_blurred objectAtIndex:[self getArrayIndexForPositionIndex:i-[self numberOfPicturesBefore]]] scaledToSize:_picturesSize]];
-        imageView.frame = CGRectMake(currentX, _picturesOffset.y, imageView.frame.size.width, imageView.frame.size.height);
         [self.blurredImagesContainer addSubview:imageView];
-        currentX += imageView.frame.size.width;
+        [_slideImageViews_blurred addObject:imageView];
     }
     
-    _currentOffset = [self numberOfPicturesBefore] * _picturesSize.width;
-    [self setContentOffset:CGPointMake(_currentOffset, 0) animated:NO];
+    [self rearrangeContent];
 }
 
 -(void)loadPicturesWithPrefix:(NSString*)prefix {
@@ -144,6 +149,9 @@
     NSString *filename;
     NSString *filename_blurred;
     NSString *format = [NSString stringWithFormat:@"%%0%dd", 4];
+    NSMutableArray *shuffledIndexes = [NSMutableArray array];
+    NSMutableArray *tempNormal = [NSMutableArray array];
+    NSMutableArray *tempBlurred = [NSMutableArray array];
     int i = 0;
     do {
         filenameSuffix = [NSString stringWithFormat:format, ++i];
@@ -152,11 +160,20 @@
         image = [UIImage imageNamed:filename];
         image_blurred = [UIImage imageNamed:filename_blurred];
         if (image && image_blurred) {
+            [shuffledIndexes addObject:[NSNumber numberWithInt:i-1]];
             [_slideImages addObject:image];
             [_slideImages_blurred addObject:image_blurred];
         }
     } while (image);
+    [shuffledIndexes shuffle];
     
+    for (i = 0; i < [shuffledIndexes count]; i += 1) {
+        [tempNormal addObject:[_slideImages objectAtIndex:[[shuffledIndexes objectAtIndex:i] intValue]]];
+        [tempBlurred addObject:[_slideImages objectAtIndex:[[shuffledIndexes objectAtIndex:i] intValue]]];
+    }
+    
+    _slideImages = tempNormal;
+    _slideImages_blurred = tempBlurred;
     [self initContent];
 }
 
@@ -168,7 +185,7 @@
 
 -(void)setCurrentIndex:(int)newIndex {
     _currentIndex = newIndex;
-    [self initContent];
+    [self rearrangeContent];
 }
 
 -(int)currentIndex {
@@ -192,10 +209,14 @@
         _currentIndex = 0;
     }
     if (self.contentOffset.x == _picturesSize.width * ([_slideImages count] -1)) {
-        [self initContent];
+        [self rearrangeContent];
     }
     _currentOffset = self.contentOffset.x;
     [self unblur];
+    
+    if (self.delegate) {
+        [self.delegate selectionChanged:self];
+    }
 }
 
 -(void)wentToPrevious {
@@ -203,10 +224,14 @@
         _currentIndex = [_slideImages count] - 1;
     }
     if (!(self.contentOffset.x)) {
-        [self initContent];
+        [self rearrangeContent];
     }
     _currentOffset = self.contentOffset.x;
     [self unblur];
+    
+    if (self.delegate) {
+        [self.delegate selectionChanged:self];
+    }
 }
 
 -(int)getArrayIndexForPositionIndex:(int)positionIndex {
@@ -226,8 +251,9 @@
 }
 
 -(void)tapScrollView:(UIGestureRecognizer *)gestureRecognizer {
-    CGPoint touchLocation = [gestureRecognizer locationOfTouch:0 inView:self];
     [self blur];
+    [self performSelector:@selector(unblur) withObject:nil afterDelay:.3];
+    CGPoint touchLocation = [gestureRecognizer locationOfTouch:0 inView:self];
     if (touchLocation.x - self.contentOffset.x < self.frame.size.width / 2) {
         [self scrollRectToVisible:CGRectMake(self.contentOffset.x - self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:YES];
         [self performSelector:@selector(wentToPrevious) withObject:self afterDelay:.5];
@@ -235,6 +261,29 @@
         [self scrollRectToVisible:CGRectMake(self.contentOffset.x + self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:YES];
         [self performSelector:@selector(wentToNext) withObject:self afterDelay:.5];
     }
+}
+
+-(void)rearrangeContent {
+    double currentX = 0;
+    UIImageView *imageView;
+    CGRect frame;
+ 
+    for (int i = 0; i < [_slideImages count]; i += 1) {
+        imageView = [_slideImageViews objectAtIndex:[self getArrayIndexForPositionIndex:i-[self numberOfPicturesBefore]]];
+        frame = CGRectMake(currentX, _picturesOffset.y, imageView.frame.size.width, imageView.frame.size.height);
+        
+        //Reposition normal image
+        imageView.frame = frame;
+
+        //Reposition blurred image
+        imageView = [_slideImageViews_blurred objectAtIndex:[self getArrayIndexForPositionIndex:i-[self numberOfPicturesBefore]]];
+        imageView.frame = frame;
+
+        currentX += imageView.frame.size.width;
+    }
+
+    _currentOffset = [self numberOfPicturesBefore] * _picturesSize.width;
+    [self setContentOffset:CGPointMake(_currentOffset, 0) animated:NO];
 }
 
 @end

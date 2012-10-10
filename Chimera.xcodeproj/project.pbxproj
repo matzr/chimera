@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E02F3EB1626175800C6B8DD /* blink-flash_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E02F3E91626175800C6B8DD /* blink-flash_0001.png */; };
+		4E02F3EC1626175800C6B8DD /* blink-flash_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E02F3EA1626175800C6B8DD /* blink-flash_0002.png */; };
 		4E21290116151440003290E9 /* MG_LoopScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E21290016151440003290E9 /* MG_LoopScrollView.m */; };
 		4E2A7028160A7059007AC03B /* part_body_blur_0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A7003160A7059007AC03B /* part_body_blur_0001.png */; };
 		4E2A7029160A7059007AC03B /* part_body_blur_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A7004160A7059007AC03B /* part_body_blur_0002.png */; };
@@ -63,9 +65,12 @@
 		4E898C3B15FA989D000E9677 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E898C3915FA989D000E9677 /* MainStoryboard_iPad.storyboard */; };
 		4E898C3E15FA989D000E9677 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C3D15FA989D000E9677 /* MainViewController.m */; };
 		4E898C4115FA989D000E9677 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C4015FA989D000E9677 /* FlipsideViewController.m */; };
+		4E9A3E3216253484003A4DB5 /* NSMutableArray+Shuffable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E02F3E91626175800C6B8DD /* blink-flash_0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blink-flash_0001.png"; sourceTree = "<group>"; };
+		4E02F3EA1626175800C6B8DD /* blink-flash_0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blink-flash_0002.png"; sourceTree = "<group>"; };
 		4E2128FF16151440003290E9 /* MG_LoopScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MG_LoopScrollView.h; sourceTree = "<group>"; };
 		4E21290016151440003290E9 /* MG_LoopScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MG_LoopScrollView.m; sourceTree = "<group>"; };
 		4E2A7003160A7059007AC03B /* part_body_blur_0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_body_blur_0001.png; sourceTree = "<group>"; };
@@ -129,6 +134,8 @@
 		4E898C3D15FA989D000E9677 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		4E898C3F15FA989D000E9677 /* FlipsideViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlipsideViewController.h; sourceTree = "<group>"; };
 		4E898C4015FA989D000E9677 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
+		4E9A3E3016253484003A4DB5 /* NSMutableArray+Shuffable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffable.h"; sourceTree = "<group>"; };
+		4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +250,8 @@
 				4E898C2B15FA989D000E9677 /* Supporting Files */,
 				4E2128FF16151440003290E9 /* MG_LoopScrollView.h */,
 				4E21290016151440003290E9 /* MG_LoopScrollView.m */,
+				4E9A3E3016253484003A4DB5 /* NSMutableArray+Shuffable.h */,
+				4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */,
 			);
 			path = Chimera;
 			sourceTree = "<group>";
@@ -250,6 +259,8 @@
 		4E898C2B15FA989D000E9677 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E02F3E91626175800C6B8DD /* blink-flash_0001.png */,
+				4E02F3EA1626175800C6B8DD /* blink-flash_0002.png */,
 				4E898C4715FAC613000E9677 /* Pictures */,
 				4E898C2C15FA989D000E9677 /* Chimera-Info.plist */,
 				4E898C2D15FA989D000E9677 /* InfoPlist.strings */,
@@ -369,6 +380,8 @@
 				4E60E3E8160ACFFE003476EC /* app-icon-iphone@2x.png in Resources */,
 				4E60E3ED160AD0F6003476EC /* background_0001.png in Resources */,
 				4E60E3EE160AD0F6003476EC /* background_0002.png in Resources */,
+				4E02F3EB1626175800C6B8DD /* blink-flash_0001.png in Resources */,
+				4E02F3EC1626175800C6B8DD /* blink-flash_0002.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +397,7 @@
 				4E898C3E15FA989D000E9677 /* MainViewController.m in Sources */,
 				4E898C4115FA989D000E9677 /* FlipsideViewController.m in Sources */,
 				4E21290116151440003290E9 /* MG_LoopScrollView.m in Sources */,
+				4E9A3E3216253484003A4DB5 /* NSMutableArray+Shuffable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
