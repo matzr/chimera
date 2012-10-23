@@ -24,16 +24,19 @@
     CGSize _picturesSize;
     CGPoint _picturesOffset;
     int _currentIndex;
+    int _currentStartIndex;
     double _currentOffset;
     UITapGestureRecognizer * _tapGestureRecognizer;
 }
 
 @property (nonatomic,assign) int currentIndex;
-@property (nonatomic,strong) id<MG_LoopScrollViewDelegate> delegate;
+@property (nonatomic,strong) id<MG_LoopScrollViewDelegate> mgdelegate;
 
 -(void)loadPicturesWithPrefix:(NSString*)prefix;
 -(void)setPicturesSize:(CGSize)newSize andOffset:(CGPoint)newOffset;
 -(void)randomizePosition;
+
+-(void)quickSpin;
 
 @end
 

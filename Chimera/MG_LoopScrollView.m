@@ -13,12 +13,18 @@
 @property (nonatomic, strong) UIView* normalImagesContainer;
 @property (nonatomic, strong) UIView* blurredImagesContainer;
 
+enum ScrollDirection {
+    kLeft,
+    kRight
+};
+
 -(void)initContent;
 -(void)rearrangeContent;
 -(int)getArrayIndexForPositionIndex:(int)positionIndex;
 -(int)numberOfPicturesBefore;
 -(void)blur;
 -(void)unblur;
+-(void)recursiveScrollWithDirection:(enum ScrollDirection)direction timeLeft:(NSTimeInterval)timeLeft posLeft:(int)posLeft;
 
 @end
 
@@ -26,7 +32,7 @@
 
 @synthesize normalImagesContainer;
 @synthesize blurredImagesContainer;
-@synthesize delegate;
+@synthesize mgdelegate;
 
 -(void)internalInit {
     _slideImages = [NSMutableArray array];
@@ -43,6 +49,7 @@
     [self addGestureRecognizer:_tapGestureRecognizer];
     self.delegate = self;
     [self setShowsHorizontalScrollIndicator:NO];
+    _currentStartIndex = 0;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -80,7 +87,19 @@
     }];
 }
 
+-(void)checkPosition {
+    if (!(self.contentOffset.x)) {
+        _currentIndex = 0;
+        [self rearrangeContent];
+    } else if (self.contentOffset.x == _picturesSize.width * ([_slideImages count] -1)) {
+        _currentIndex = [_slideImages count] - 1;
+        [self rearrangeContent];
+    }
+}
+
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    [UIViewController cancelPreviousPerformRequestsWithTarget:self selector:@selector(checkPosition) object:nil];
+    [self performSelector:@selector(checkPosition) withObject:nil afterDelay:.8];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -215,7 +234,7 @@
     [self unblur];
     
     if (self.delegate) {
-        [self.delegate selectionChanged:self];
+        [self.mgdelegate selectionChanged:self];
     }
 }
 
@@ -230,7 +249,7 @@
     [self unblur];
     
     if (self.delegate) {
-        [self.delegate selectionChanged:self];
+        [self.mgdelegate selectionChanged:self];
     }
 }
 
@@ -284,6 +303,39 @@
 
     _currentOffset = [self numberOfPicturesBefore] * _picturesSize.width;
     [self setContentOffset:CGPointMake(_currentOffset, 0) animated:NO];
+}
+
+-(void)setCorrectIndex {
+    _currentIndex = (int)(self.contentOffset.x / (self.frame.size.width)?self.frame.size.width:1);
+}
+
+-(void)quickSpin {
+    enum ScrollDirection scrollDir = (arc4random_uniform(2))?kRight:kLeft;
+    int numberOfPosToScroll = 10 + arc4random_uniform(16);
+    
+    [self blur];
+    [self setContentOffset:CGPointMake((scrollDir == kRight)?0:(self.contentSize.width - self.frame.size.width), 0) animated:NO];
+
+    [self recursiveScrollWithDirection: scrollDir timeLeft:3 posLeft:numberOfPosToScroll];
+}
+
+-(void)recursiveScrollWithDirection:(enum ScrollDirection)direction timeLeft:(NSTimeInterval)timeLeft posLeft:(int)posLeft {
+    double timePerPosition = timeLeft / posLeft;
+    double pictureSize = self.frame.size.width;
+    double currentOffset = (direction == kRight)?self.contentOffset.x:self.contentSize.width - (self.contentOffset.x + self.frame.size.width);
+    double timeUntilEndOfScrollView = (self.contentSize.width - currentOffset) / timePerPosition;
+    
+    if (timeUntilEndOfScrollView  > timeLeft) {
+        //Won't scroll until current beginning/end of scrollview
+    } else {
+        NSTimeInterval animationDuration = ([_slideImages count] - 1) * timePerPosition;
+        [UIView animateWithDuration:animationDuration animations:^{
+            double newOffset = (direction==kRight)?self.contentSize.width - self.frame.size.width:0;
+            [self setContentOffset:CGPointMake(newOffset, 0) animated:NO];
+        } completion:^(BOOL finished) {
+            //TODO: reset the new position of the scrollview to the beginning of end of the content + recursive call to the same method with updated values
+        }];
+    }
 }
 
 @end

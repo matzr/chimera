@@ -15,26 +15,48 @@
 }
 
 - (void)viewDidLoad {
-    [topLoopScrollView loadPicturesWithPrefix:@"part_head"];
-    [topLoopScrollView setPicturesSize:CGSizeMake(320, 260) andOffset:CGPointMake(0, 10)];
-    [topLoopScrollView randomizePosition];
-    [middleLoopScrollView loadPicturesWithPrefix:@"part_body"];
-    [middleLoopScrollView setPicturesSize:CGSizeMake(320, 330) andOffset:CGPointMake(0, -69)];
-    [middleLoopScrollView randomizePosition];
-    [bottomLoopScrollView loadPicturesWithPrefix:@"part_feet"];
-    [bottomLoopScrollView setPicturesSize:CGSizeMake(320, 280) andOffset:CGPointMake(0, -95)];
+    [self.topLoopScrollView loadPicturesWithPrefix:@"part_head"];
+    [self.topLoopScrollView setPicturesSize:CGSizeMake(320, 260) andOffset:CGPointMake(0, -10)];
+    [self.topLoopScrollView randomizePosition];
+    [self.middleLoopScrollView loadPicturesWithPrefix:@"part_body"];
+    [self.middleLoopScrollView setPicturesSize:CGSizeMake(320, 330) andOffset:CGPointMake(0, -89)];
+    [self.middleLoopScrollView randomizePosition];
+    [self.bottomLoopScrollView loadPicturesWithPrefix:@"part_feet"];
+    [self.bottomLoopScrollView setPicturesSize:CGSizeMake(320, 280) andOffset:CGPointMake(0, -105)];
     
-    topLoopScrollView.delegate = self;
-    middleLoopScrollView.delegate = self;
-    bottomLoopScrollView.delegate = self;
+    self.topLoopScrollView.mgdelegate = self;
+    self.middleLoopScrollView.mgdelegate = self;
+    self.bottomLoopScrollView.mgdelegate = self;
     
-    [bottomLoopScrollView randomizePosition];
+    [self.bottomLoopScrollView randomizePosition];
     self.successAnimationImageView.hidden = YES;
     
     //sound fx on picture swipe
     //sound fx on random
-    //remonter les pattes legerement -- qques pixels
-    
+}
+
+-(BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [self resignFirstResponder];
+    [super viewWillDisappear:animated];
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        [self.topLoopScrollView quickSpin];
+        [self.middleLoopScrollView quickSpin];
+        [self.bottomLoopScrollView quickSpin];
+    }
 }
 
 -(void)initSuccessAnimation {
