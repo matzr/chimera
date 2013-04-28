@@ -7,6 +7,7 @@
 //
 
 #import "MG_LoopScrollView.h"
+#import "AppDelegate.h"
 
 @interface MG_LoopScrollView()
 
@@ -336,6 +337,10 @@ enum ScrollDirection {
             //TODO: reset the new position of the scrollview to the beginning of end of the content + recursive call to the same method with updated values
         }];
     }
+}
+
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [((AppDelegate *)[UIApplication sharedApplication].delegate) playSweepingSound];
 }
 
 @end

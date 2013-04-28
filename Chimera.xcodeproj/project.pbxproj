@@ -46,6 +46,7 @@
 		4E2A7049160A7059007AC03B /* part_head_0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A7025160A7059007AC03B /* part_head_0004.png */; };
 		4E2A704A160A7059007AC03B /* part_head_0005.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A7026160A7059007AC03B /* part_head_0005.png */; };
 		4E2A704B160A7059007AC03B /* part_head_0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E2A7027160A7059007AC03B /* part_head_0006.png */; };
+		4E2C37E6172DD211004E06AD /* whip_whoosh_large_dowel_rod.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E2C37E5172DD211004E06AD /* whip_whoosh_large_dowel_rod.mp3 */; };
 		4E3BA1EA160AC40A003AF9B3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E3BA1E9160AC40A003AF9B3 /* Default-568h@2x.png */; };
 		4E4057A2172CC5AD006D8A4F /* dans_la_jungle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E4057A1172CC5AD006D8A4F /* dans_la_jungle.mp3 */; };
 		4E4057A4172CC680006D8A4F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E4057A3172CC680006D8A4F /* AudioToolbox.framework */; };
@@ -112,6 +113,7 @@
 		4E2A7025160A7059007AC03B /* part_head_0004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_head_0004.png; sourceTree = "<group>"; };
 		4E2A7026160A7059007AC03B /* part_head_0005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_head_0005.png; sourceTree = "<group>"; };
 		4E2A7027160A7059007AC03B /* part_head_0006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_head_0006.png; sourceTree = "<group>"; };
+		4E2C37E5172DD211004E06AD /* whip_whoosh_large_dowel_rod.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = whip_whoosh_large_dowel_rod.mp3; sourceTree = "<group>"; };
 		4E3BA1E9160AC40A003AF9B3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		4E4057A1172CC5AD006D8A4F /* dans_la_jungle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dans_la_jungle.mp3; sourceTree = "<group>"; };
 		4E4057A3172CC680006D8A4F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -213,8 +215,6 @@
 		4E898C1515FA989D000E9677 = {
 			isa = PBXGroup;
 			children = (
-				4E4057A5172CC80E006D8A4F /* AVFoundation.framework */,
-				4E4057A3172CC680006D8A4F /* AudioToolbox.framework */,
 				4E898C2A15FA989D000E9677 /* Chimera */,
 				4E898C2315FA989D000E9677 /* Frameworks */,
 				4E898C2115FA989D000E9677 /* Products */,
@@ -232,6 +232,8 @@
 		4E898C2315FA989D000E9677 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E4057A5172CC80E006D8A4F /* AVFoundation.framework */,
+				4E4057A3172CC680006D8A4F /* AudioToolbox.framework */,
 				4E898C2415FA989D000E9677 /* UIKit.framework */,
 				4E898C2615FA989D000E9677 /* Foundation.framework */,
 				4E898C2815FA989D000E9677 /* CoreGraphics.framework */,
@@ -262,6 +264,7 @@
 		4E898C2B15FA989D000E9677 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4E2C37E5172DD211004E06AD /* whip_whoosh_large_dowel_rod.mp3 */,
 				4E4057A1172CC5AD006D8A4F /* dans_la_jungle.mp3 */,
 				4E60E3E7160ACFFE003476EC /* app-icon-iphone@2x.png */,
 				4E60E3E5160ACFCB003476EC /* app-icon-ipad.png */,
@@ -394,6 +397,7 @@
 				4E02F3EB1626175800C6B8DD /* blink-flash_0001.png in Resources */,
 				4E02F3EC1626175800C6B8DD /* blink-flash_0002.png in Resources */,
 				4E4057A2172CC5AD006D8A4F /* dans_la_jungle.mp3 in Resources */,
+				4E2C37E6172DD211004E06AD /* whip_whoosh_large_dowel_rod.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,14 +501,14 @@
 		4E898C4515FA989D000E9677 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Mathieu Gardere (A3W2R3YMYZ)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mathieu Gardere (A3W2R3YMYZ)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Mathieu Gardere (A87VKJVU39)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mathieu Gardere (A87VKJVU39)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chimera/Chimera-Prefix.pch";
 				INFOPLIST_FILE = "Chimera/Chimera-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "37073985-EC6B-46F5-93CA-58ADCCF57259";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "37073985-EC6B-46F5-93CA-58ADCCF57259";
+				PROVISIONING_PROFILE = "AD2F1686-40A9-47C9-9580-A7E41AC92F80";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AD2F1686-40A9-47C9-9580-A7E41AC92F80";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

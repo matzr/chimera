@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate() {
-    AVAudioPlayer *myPlayer;
+    AVAudioPlayer *backgroundMusicPlayer;
+    AVAudioPlayer *sweepSoundPlayer;
 }
 
 @end
@@ -20,21 +21,29 @@
 {
     application.applicationSupportsShakeToEdit = YES;
     
-    NSString *backgroundSoundPath = [[NSBundle mainBundle] pathForResource:@"dans_la_jungle" ofType:@"mp3"];
-    myPlayer =[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:backgroundSoundPath] error:nil];
-    myPlayer.delegate = self;
-    [myPlayer prepareToPlay];
-    myPlayer.numberOfLoops = -1;
-    //[myExampleSound stop];
+    backgroundMusicPlayer = [self getMusicPlayerForPathForResource:@"dans_la_jungle" withExtension:@"mp3"];
+    backgroundMusicPlayer.numberOfLoops = -1;
+    
+    sweepSoundPlayer = [self getMusicPlayerForPathForResource:@"whip_whoosh_large_dowel_rod" withExtension:@"mp3"];
+    sweepSoundPlayer.numberOfLoops = 1;
     
     return YES;
 }
+
+-(AVAudioPlayer*)getMusicPlayerForPathForResource:(NSString *)fileName withExtension:(NSString*)fileType {
+    NSString *soundPath = [[NSBundle mainBundle] pathForResource:fileName ofType:fileType];
+    AVAudioPlayer *audiolayer =[[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:soundPath] error:nil];
+    audiolayer.delegate = self;
+    [audiolayer prepareToPlay];
+    return  audiolayer;
+}
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    [myPlayer stop];
+    [backgroundMusicPlayer stop];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -51,12 +60,17 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [myPlayer play];
+    [backgroundMusicPlayer play];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+-(void)playSweepingSound {
+    [sweepSoundPlayer stop];
+    [sweepSoundPlayer play];
 }
 
 @end
