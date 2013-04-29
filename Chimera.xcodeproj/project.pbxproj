@@ -70,6 +70,10 @@
 		4E898C3E15FA989D000E9677 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C3D15FA989D000E9677 /* MainViewController.m */; };
 		4E898C4115FA989D000E9677 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C4015FA989D000E9677 /* FlipsideViewController.m */; };
 		4E9A3E3216253484003A4DB5 /* NSMutableArray+Shuffable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */; };
+		4ED158A3172E863000801970 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED1589F172E863000801970 /* libTestFlight.a */; };
+		4ED158A4172E863000801970 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4ED158A0172E863000801970 /* README.md */; };
+		4ED158A5172E863000801970 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4ED158A1172E863000801970 /* release_notes.md */; };
+		4ED158A7172E865C00801970 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED158A6172E865C00801970 /* libz.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +148,11 @@
 		4E898C4015FA989D000E9677 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 		4E9A3E3016253484003A4DB5 /* NSMutableArray+Shuffable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffable.h"; sourceTree = "<group>"; };
 		4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffable.m"; sourceTree = "<group>"; };
+		4ED1589F172E863000801970 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		4ED158A0172E863000801970 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		4ED158A1172E863000801970 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		4ED158A2172E863000801970 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		4ED158A6172E865C00801970 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,11 +160,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ED158A7172E865C00801970 /* libz.dylib in Frameworks */,
 				4E4057A6172CC80E006D8A4F /* AVFoundation.framework in Frameworks */,
 				4E4057A4172CC680006D8A4F /* AudioToolbox.framework in Frameworks */,
 				4E898C2515FA989D000E9677 /* UIKit.framework in Frameworks */,
 				4E898C2715FA989D000E9677 /* Foundation.framework in Frameworks */,
 				4E898C2915FA989D000E9677 /* CoreGraphics.framework in Frameworks */,
+				4ED158A3172E863000801970 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +243,8 @@
 		4E898C2315FA989D000E9677 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ED158A6172E865C00801970 /* libz.dylib */,
+				4ED1589E172E862200801970 /* Parse.framework */,
 				4E4057A5172CC80E006D8A4F /* AVFoundation.framework */,
 				4E4057A3172CC680006D8A4F /* AudioToolbox.framework */,
 				4E898C2415FA989D000E9677 /* UIKit.framework */,
@@ -293,6 +306,17 @@
 				4E2A7015160A7059007AC03B /* part-normal */,
 			);
 			name = Pictures;
+			sourceTree = "<group>";
+		};
+		4ED1589E172E862200801970 /* Parse.framework */ = {
+			isa = PBXGroup;
+			children = (
+				4ED1589F172E863000801970 /* libTestFlight.a */,
+				4ED158A0172E863000801970 /* README.md */,
+				4ED158A1172E863000801970 /* release_notes.md */,
+				4ED158A2172E863000801970 /* TestFlight.h */,
+			);
+			name = Parse.framework;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,6 +422,8 @@
 				4E02F3EC1626175800C6B8DD /* blink-flash_0002.png in Resources */,
 				4E4057A2172CC5AD006D8A4F /* dans_la_jungle.mp3 in Resources */,
 				4E2C37E6172DD211004E06AD /* whip_whoosh_large_dowel_rod.mp3 in Resources */,
+				4ED158A4172E863000801970 /* README.md in Resources */,
+				4ED158A5172E863000801970 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +532,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chimera/Chimera-Prefix.pch";
 				INFOPLIST_FILE = "Chimera/Chimera-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "AD2F1686-40A9-47C9-9580-A7E41AC92F80";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AD2F1686-40A9-47C9-9580-A7E41AC92F80";
@@ -521,6 +551,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chimera/Chimera-Prefix.pch";
 				INFOPLIST_FILE = "Chimera/Chimera-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "59EBA744-63B1-4D7B-B09F-DFA9234C1FDC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "59EBA744-63B1-4D7B-B09F-DFA9234C1FDC";

@@ -27,6 +27,11 @@
     sweepSoundPlayer = [self getMusicPlayerForPathForResource:@"whip_whoosh_large_dowel_rod" withExtension:@"mp3"];
     sweepSoundPlayer.numberOfLoops = 1;
     
+    // start of your application:didFinishLaunchingWithOptions // ...
+    [TestFlight takeOff:@"758ff72b-8faf-4a51-a945-9eced5c3276c"];
+    // The rest of your application:didFinishLaunchingWithOptions method// ...
+
+    
     return YES;
 }
 
