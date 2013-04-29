@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) UIView* normalImagesContainer;
 @property (nonatomic, strong) UIView* blurredImagesContainer;
+@property (nonatomic, strong) NSMutableArray *shuffledIndexes;
+
 
 enum ScrollDirection {
     kLeft,
@@ -169,9 +171,9 @@ enum ScrollDirection {
     NSString *filename;
     NSString *filename_blurred;
     NSString *format = [NSString stringWithFormat:@"%%0%dd", 4];
-    NSMutableArray *shuffledIndexes = [NSMutableArray array];
     NSMutableArray *tempNormal = [NSMutableArray array];
     NSMutableArray *tempBlurred = [NSMutableArray array];
+    self.shuffledIndexes = [NSMutableArray array];
     int i = 0;
     do {
         filenameSuffix = [NSString stringWithFormat:format, ++i];
@@ -180,20 +182,20 @@ enum ScrollDirection {
         image = [UIImage imageNamed:filename];
         image_blurred = [UIImage imageNamed:filename_blurred];
         if (image && image_blurred) {
-            [shuffledIndexes addObject:[NSNumber numberWithInt:i-1]];
+            [self.shuffledIndexes addObject:[NSNumber numberWithInt:i-1]];
             [_slideImages addObject:image];
             [_slideImages_blurred addObject:image_blurred];
         }
     } while (image);
-    [shuffledIndexes shuffle];
+    [self.shuffledIndexes shuffle];
     
-    for (i = 0; i < [shuffledIndexes count]; i += 1) {
-        [tempNormal addObject:[_slideImages objectAtIndex:[[shuffledIndexes objectAtIndex:i] intValue]]];
-        [tempBlurred addObject:[_slideImages objectAtIndex:[[shuffledIndexes objectAtIndex:i] intValue]]];
-    }
-    
-    _slideImages = tempNormal;
-    _slideImages_blurred = tempBlurred;
+//    for (i = 0; i < [self.shuffledIndexes count]; i += 1) {
+//        [tempNormal addObject:[_slideImages objectAtIndex:[[self.shuffledIndexes objectAtIndex:i] intValue]]];
+//        [tempBlurred addObject:[_slideImages objectAtIndex:[[self.shuffledIndexes objectAtIndex:i] intValue]]];
+//    }
+//    
+//    _slideImages = tempNormal;
+//    _slideImages_blurred = tempBlurred;
     [self initContent];
 }
 
@@ -341,6 +343,10 @@ enum ScrollDirection {
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [((AppDelegate *)[UIApplication sharedApplication].delegate) playSweepingSound];
+}
+
+-(int)currentAnimalId {
+    return self.currentIndex;
 }
 
 @end

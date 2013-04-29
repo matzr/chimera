@@ -30,8 +30,9 @@
     
     [self.bottomLoopScrollView randomizePosition];
     self.successAnimationImageView.hidden = YES;
+
+    [self initSuccessAnimation];
     
-    //sound fx on picture swipe
     //sound fx on random
 }
 
@@ -60,8 +61,8 @@
 }
 
 -(void)initSuccessAnimation {
-    UIImage* img1 = [UIImage imageNamed:@"blink-flash_001"];
-    UIImage* img2 = [UIImage imageNamed:@"blink-flash_002"];
+    UIImage* img1 = [UIImage imageNamed:@"blink-flash_0001"];
+    UIImage* img2 = [UIImage imageNamed:@"blink-flash_0002"];
     
     NSArray *images = [NSArray arrayWithObjects:img1,img2, nil];
     
@@ -98,7 +99,10 @@
 }
 
 -(void)selectionChanged:(id)scrollView {
-    
+    NSLog(@"selectionChanged: %d/%d/%d", self.topLoopScrollView.currentAnimalId, self.middleLoopScrollView.currentAnimalId, self.bottomLoopScrollView.currentAnimalId);
+    if ( (self.topLoopScrollView.currentAnimalId == self.middleLoopScrollView.currentAnimalId) && (self.topLoopScrollView.currentAnimalId == self.bottomLoopScrollView.currentAnimalId)) {
+        [self onSuccessAnimation];
+    }
 }
 
 @end

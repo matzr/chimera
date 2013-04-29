@@ -30,6 +30,7 @@
 }
 
 @property (nonatomic,assign) int currentIndex;
+@property (nonatomic,readonly) int currentAnimalId;
 @property (nonatomic,strong) id<MG_LoopScrollViewDelegate> mgdelegate;
 
 -(void)loadPicturesWithPrefix:(NSString*)prefix;
