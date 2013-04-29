@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate() {
     AVAudioPlayer *backgroundMusicPlayer;
@@ -31,6 +32,7 @@
     [TestFlight takeOff:@"758ff72b-8faf-4a51-a945-9eced5c3276c"];
     // The rest of your application:didFinishLaunchingWithOptions method// ...
 
+    [Crashlytics startWithAPIKey:@"7e3a885f3571e836c73ceff201073edd359e84d5"];
     
     return YES;
 }

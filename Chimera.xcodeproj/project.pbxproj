@@ -74,6 +74,7 @@
 		4ED158A4172E863000801970 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4ED158A0172E863000801970 /* README.md */; };
 		4ED158A5172E863000801970 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4ED158A1172E863000801970 /* release_notes.md */; };
 		4ED158A7172E865C00801970 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED158A6172E865C00801970 /* libz.dylib */; };
+		4ED158AA172E878C00801970 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED158A9172E878C00801970 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +154,7 @@
 		4ED158A1172E863000801970 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
 		4ED158A2172E863000801970 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		4ED158A6172E865C00801970 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4ED158A9172E878C00801970 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				4E898C2715FA989D000E9677 /* Foundation.framework in Frameworks */,
 				4E898C2915FA989D000E9677 /* CoreGraphics.framework in Frameworks */,
 				4ED158A3172E863000801970 /* libTestFlight.a in Frameworks */,
+				4ED158AA172E878C00801970 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +246,7 @@
 		4E898C2315FA989D000E9677 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ED158A9172E878C00801970 /* Crashlytics.framework */,
 				4ED158A6172E865C00801970 /* libz.dylib */,
 				4ED1589E172E862200801970 /* Parse.framework */,
 				4E4057A5172CC80E006D8A4F /* AVFoundation.framework */,
@@ -329,6 +333,7 @@
 				4E898C1C15FA989D000E9677 /* Sources */,
 				4E898C1D15FA989D000E9677 /* Frameworks */,
 				4E898C1E15FA989D000E9677 /* Resources */,
+				4ED158A8172E877000801970 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -428,6 +433,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4ED158A8172E877000801970 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 7e3a885f3571e836c73ceff201073edd359e84d5";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E898C1C15FA989D000E9677 /* Sources */ = {
@@ -529,6 +550,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Mathieu Gardere (A87VKJVU39)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Mathieu Gardere (A87VKJVU39)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chimera/Chimera-Prefix.pch";
 				INFOPLIST_FILE = "Chimera/Chimera-Info.plist";
@@ -548,6 +573,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Mathieu Gardere";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mathieu Gardere";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chimera/Chimera-Prefix.pch";
 				INFOPLIST_FILE = "Chimera/Chimera-Info.plist";
