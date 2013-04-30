@@ -12,6 +12,7 @@
 @interface AppDelegate() {
     AVAudioPlayer *backgroundMusicPlayer;
     AVAudioPlayer *sweepSoundPlayer;
+    AVAudioPlayer *cheeringSoundPlayer;
 }
 
 @end
@@ -27,6 +28,9 @@
     
     sweepSoundPlayer = [self getMusicPlayerForPathForResource:@"whip_whoosh_large_dowel_rod" withExtension:@"mp3"];
     sweepSoundPlayer.numberOfLoops = 1;
+    
+    cheeringSoundPlayer = [self getMusicPlayerForPathForResource:@"cheering" withExtension:@"mp3"];
+    cheeringSoundPlayer.numberOfLoops = 1;
     
     // start of your application:didFinishLaunchingWithOptions // ...
     [TestFlight takeOff:@"758ff72b-8faf-4a51-a945-9eced5c3276c"];
@@ -78,6 +82,11 @@
 -(void)playSweepingSound {
     [sweepSoundPlayer stop];
     [sweepSoundPlayer play];
+}
+
+-(void)playCheeringSound {
+    [cheeringSoundPlayer stop];
+    [cheeringSoundPlayer play];
 }
 
 @end

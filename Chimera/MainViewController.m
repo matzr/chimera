@@ -1,4 +1,5 @@
 #import "MainViewController.h"
+#import "AppDelegate.h"
 
 @implementation MainViewController
 
@@ -6,6 +7,7 @@
 @synthesize middleLoopScrollView;
 @synthesize bottomLoopScrollView;
 @synthesize successAnimationImageView;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
@@ -32,8 +34,6 @@
     self.successAnimationImageView.hidden = YES;
 
     [self initSuccessAnimation];
-    
-    //sound fx on random
 }
 
 -(BOOL)canBecomeFirstResponder {
@@ -102,6 +102,7 @@
     NSLog(@"selectionChanged: %d/%d/%d", self.topLoopScrollView.currentAnimalId, self.middleLoopScrollView.currentAnimalId, self.bottomLoopScrollView.currentAnimalId);
     if ( (self.topLoopScrollView.currentAnimalId == self.middleLoopScrollView.currentAnimalId) && (self.topLoopScrollView.currentAnimalId == self.bottomLoopScrollView.currentAnimalId)) {
         [self onSuccessAnimation];
+        [((AppDelegate *)[UIApplication sharedApplication].delegate) playCheeringSound];
     }
 }
 

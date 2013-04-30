@@ -75,6 +75,7 @@
 		4ED158A5172E863000801970 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4ED158A1172E863000801970 /* release_notes.md */; };
 		4ED158A7172E865C00801970 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED158A6172E865C00801970 /* libz.dylib */; };
 		4ED158AA172E878C00801970 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED158A9172E878C00801970 /* Crashlytics.framework */; };
+		4EE01320172F396200934896 /* cheering.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EE0131F172F396200934896 /* cheering.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +156,7 @@
 		4ED158A2172E863000801970 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		4ED158A6172E865C00801970 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4ED158A9172E878C00801970 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		4EE0131F172F396200934896 /* cheering.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cheering.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,14 +248,14 @@
 		4E898C2315FA989D000E9677 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E4057A3172CC680006D8A4F /* AudioToolbox.framework */,
+				4E4057A5172CC80E006D8A4F /* AVFoundation.framework */,
+				4E898C2815FA989D000E9677 /* CoreGraphics.framework */,
 				4ED158A9172E878C00801970 /* Crashlytics.framework */,
+				4E898C2615FA989D000E9677 /* Foundation.framework */,
 				4ED158A6172E865C00801970 /* libz.dylib */,
 				4ED1589E172E862200801970 /* Parse.framework */,
-				4E4057A5172CC80E006D8A4F /* AVFoundation.framework */,
-				4E4057A3172CC680006D8A4F /* AudioToolbox.framework */,
 				4E898C2415FA989D000E9677 /* UIKit.framework */,
-				4E898C2615FA989D000E9677 /* Foundation.framework */,
-				4E898C2815FA989D000E9677 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -281,8 +283,9 @@
 		4E898C2B15FA989D000E9677 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4E2C37E5172DD211004E06AD /* whip_whoosh_large_dowel_rod.mp3 */,
+				4EE0131F172F396200934896 /* cheering.mp3 */,
 				4E4057A1172CC5AD006D8A4F /* dans_la_jungle.mp3 */,
+				4E2C37E5172DD211004E06AD /* whip_whoosh_large_dowel_rod.mp3 */,
 				4E60E3E7160ACFFE003476EC /* app-icon-iphone@2x.png */,
 				4E60E3E5160ACFCB003476EC /* app-icon-ipad.png */,
 				4E60E3E3160ACFAF003476EC /* app-icon-ipad@2x.png */,
@@ -429,6 +432,7 @@
 				4E2C37E6172DD211004E06AD /* whip_whoosh_large_dowel_rod.mp3 in Resources */,
 				4ED158A4172E863000801970 /* README.md in Resources */,
 				4ED158A5172E863000801970 /* release_notes.md in Resources */,
+				4EE01320172F396200934896 /* cheering.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
