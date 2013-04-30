@@ -76,6 +76,8 @@
 		4ED158A7172E865C00801970 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED158A6172E865C00801970 /* libz.dylib */; };
 		4ED158AA172E878C00801970 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED158A9172E878C00801970 /* Crashlytics.framework */; };
 		4EE01320172F396200934896 /* cheering.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EE0131F172F396200934896 /* cheering.mp3 */; };
+		4EE0132D17306C9900934896 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE0132C17306C9900934896 /* StoreKit.framework */; };
+		4EE0133017306CDF00934896 /* PaymentProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE0132F17306CDF00934896 /* PaymentProcessor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,6 +159,9 @@
 		4ED158A6172E865C00801970 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		4ED158A9172E878C00801970 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		4EE0131F172F396200934896 /* cheering.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cheering.mp3; sourceTree = "<group>"; };
+		4EE0132C17306C9900934896 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		4EE0132E17306CDF00934896 /* PaymentProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentProcessor.h; sourceTree = "<group>"; };
+		4EE0132F17306CDF00934896 /* PaymentProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentProcessor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +169,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EE0132D17306C9900934896 /* StoreKit.framework in Frameworks */,
 				4ED158A7172E865C00801970 /* libz.dylib in Frameworks */,
 				4E4057A6172CC80E006D8A4F /* AVFoundation.framework in Frameworks */,
 				4E4057A4172CC680006D8A4F /* AudioToolbox.framework in Frameworks */,
@@ -231,6 +237,7 @@
 		4E898C1515FA989D000E9677 = {
 			isa = PBXGroup;
 			children = (
+				4EE0132C17306C9900934896 /* StoreKit.framework */,
 				4E898C2A15FA989D000E9677 /* Chimera */,
 				4E898C2315FA989D000E9677 /* Frameworks */,
 				4E898C2115FA989D000E9677 /* Products */,
@@ -276,6 +283,8 @@
 				4E21290016151440003290E9 /* MG_LoopScrollView.m */,
 				4E9A3E3016253484003A4DB5 /* NSMutableArray+Shuffable.h */,
 				4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */,
+				4EE0132E17306CDF00934896 /* PaymentProcessor.h */,
+				4EE0132F17306CDF00934896 /* PaymentProcessor.m */,
 			);
 			path = Chimera;
 			sourceTree = "<group>";
@@ -465,6 +474,7 @@
 				4E898C4115FA989D000E9677 /* FlipsideViewController.m in Sources */,
 				4E21290116151440003290E9 /* MG_LoopScrollView.m in Sources */,
 				4E9A3E3216253484003A4DB5 /* NSMutableArray+Shuffable.m in Sources */,
+				4EE0133017306CDF00934896 /* PaymentProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
