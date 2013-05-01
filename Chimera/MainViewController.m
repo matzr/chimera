@@ -1,5 +1,14 @@
 #import "MainViewController.h"
 #import "AppDelegate.h"
+#import "PaymentProcessor.h"
+
+@interface MainViewController() {
+    
+}
+
+@property (nonatomic,strong) PaymentProcessor *paymentProcessor;
+
+@end
 
 @implementation MainViewController
 
@@ -32,6 +41,9 @@
     
     [self.bottomLoopScrollView randomizePosition];
     self.successAnimationImageView.hidden = YES;
+    
+    self.paymentProcessor = [[PaymentProcessor alloc] init];
+    [self.paymentProcessor requestProductDetails];
 
     [self initSuccessAnimation];
 }
@@ -106,4 +118,7 @@
     }
 }
 
+- (IBAction)showSettings:(id)sender {
+//    [self.paymentProcessor purchasePack1];
+}
 @end

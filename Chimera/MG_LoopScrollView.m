@@ -101,11 +101,13 @@ enum ScrollDirection {
 }
 
 -(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    self.userInteractionEnabled = NO;
     [UIViewController cancelPreviousPerformRequestsWithTarget:self selector:@selector(checkPosition) object:nil];
     [self performSelector:@selector(checkPosition) withObject:nil afterDelay:.8];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    self.userInteractionEnabled = YES;
     if (scrollView.contentOffset.x > _currentOffset) {
         [self wentToNext];
     }

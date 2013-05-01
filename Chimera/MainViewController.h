@@ -18,5 +18,6 @@
 @property (strong, nonatomic) IBOutlet MG_LoopScrollView *bottomLoopScrollView;
 
 @property (strong, nonatomic) IBOutlet UIImageView *successAnimationImageView;
+- (IBAction)showSettings:(id)sender;
 
 @end

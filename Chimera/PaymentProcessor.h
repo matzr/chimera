@@ -10,6 +10,9 @@
 
 @interface PaymentProcessor : NSObject<SKPaymentTransactionObserver, SKProductsRequestDelegate>
 
+@property (nonatomic,strong) NSArray* products;
+
 -(void)requestProductDetails;
+-(void)purchasePack1;
 
 @end
