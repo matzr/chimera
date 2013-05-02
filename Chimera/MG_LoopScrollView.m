@@ -177,18 +177,18 @@ enum ScrollDirection {
     NSMutableArray *tempBlurred = [NSMutableArray array];
     self.shuffledIndexes = [NSMutableArray array];
     int i = 0;
-    do {
-        filenameSuffix = [NSString stringWithFormat:format, ++i];
+    for (NSNumber *pictureIndex in self.pictureIndexes) {
+        filenameSuffix = [NSString stringWithFormat:format, pictureIndex.intValue];
         filename = [NSString stringWithFormat:@"%@_%@", prefix, filenameSuffix];
         filename_blurred = [NSString stringWithFormat:@"%@_blur_%@", prefix, filenameSuffix];
         image = [UIImage imageNamed:filename];
         image_blurred = [UIImage imageNamed:filename_blurred];
         if (image && image_blurred) {
-            [self.shuffledIndexes addObject:[NSNumber numberWithInt:i-1]];
+            [self.shuffledIndexes addObject:[NSNumber numberWithInt:i++]];
             [_slideImages addObject:image];
             [_slideImages_blurred addObject:image_blurred];
         }
-    } while (image);
+    }
     [self.shuffledIndexes shuffle];
     
     for (i = 0; i < [self.shuffledIndexes count]; i += 1) {
@@ -348,7 +348,7 @@ enum ScrollDirection {
 }
 
 -(int)currentAnimalId {
-    return [self.shuffledIndexes[[self getArrayIndexForPositionIndex:3]] intValue];
+    return [self.shuffledIndexes[[self getArrayIndexForPositionIndex:[self centerIndex]]] intValue];
 }
 
 @end

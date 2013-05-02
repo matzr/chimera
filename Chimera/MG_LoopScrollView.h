@@ -33,6 +33,7 @@
 @property (nonatomic,assign) int currentIndex;
 @property (nonatomic,readonly) int currentAnimalId;
 @property (nonatomic,strong) id<MG_LoopScrollViewDelegate> mgdelegate;
+@property (nonatomic,strong) NSArray *pictureIndexes;
 
 -(void)loadPicturesWithPrefix:(NSString*)prefix;
 -(void)setPicturesSize:(CGSize)newSize andOffset:(CGPoint)newOffset;

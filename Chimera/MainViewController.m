@@ -7,6 +7,7 @@
 }
 
 @property (nonatomic,strong) PaymentProcessor *paymentProcessor;
+@property (nonatomic,assign) BOOL pack1Purchased;
 
 @end
 
@@ -26,14 +27,24 @@
 }
 
 - (void)viewDidLoad {
+    self.pack1Purchased = YES;
+    NSMutableArray *pictureIndexes = [NSMutableArray array];
+    [pictureIndexes addObjectsFromArray:@[@1, @2, @3, @4]];
+    if (self.pack1Purchased) {
+        [pictureIndexes addObjectsFromArray:@[@5, @6, @7, @8]];
+    }
+    
+    self.topLoopScrollView.pictureIndexes = pictureIndexes;
     [self.topLoopScrollView loadPicturesWithPrefix:@"part_head"];
     [self.topLoopScrollView setPicturesSize:CGSizeMake(320, 260) andOffset:CGPointMake(0, -10)];
     self.topLoopScrollView.name = @"top";
 //    [self.topLoopScrollView randomizePosition];
+    self.middleLoopScrollView.pictureIndexes = pictureIndexes;
     [self.middleLoopScrollView loadPicturesWithPrefix:@"part_body"];
     [self.middleLoopScrollView setPicturesSize:CGSizeMake(320, 330) andOffset:CGPointMake(0, -89)];
     self.middleLoopScrollView.name = @"middle";
 //    [self.middleLoopScrollView randomizePosition];
+    self.bottomLoopScrollView.pictureIndexes = pictureIndexes;
     [self.bottomLoopScrollView loadPicturesWithPrefix:@"part_feet"];
     [self.bottomLoopScrollView setPicturesSize:CGSizeMake(320, 280) andOffset:CGPointMake(0, -105)];
     self.bottomLoopScrollView.name = @"bottom";
