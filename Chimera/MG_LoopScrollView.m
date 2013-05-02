@@ -191,13 +191,14 @@ enum ScrollDirection {
     } while (image);
     [self.shuffledIndexes shuffle];
     
-//    for (i = 0; i < [self.shuffledIndexes count]; i += 1) {
-//        [tempNormal addObject:[_slideImages objectAtIndex:[[self.shuffledIndexes objectAtIndex:i] intValue]]];
-//        [tempBlurred addObject:[_slideImages objectAtIndex:[[self.shuffledIndexes objectAtIndex:i] intValue]]];
-//    }
-//    
-//    _slideImages = tempNormal;
-//    _slideImages_blurred = tempBlurred;
+    for (i = 0; i < [self.shuffledIndexes count]; i += 1) {
+        int indexToPick = [self.shuffledIndexes[i] intValue];
+        tempNormal[i] = _slideImages[indexToPick];
+        tempBlurred[i] = _slideImages[indexToPick];
+    }
+    
+    _slideImages = tempNormal;
+    _slideImages_blurred = tempBlurred;
     [self initContent];
 }
 
@@ -326,7 +327,6 @@ enum ScrollDirection {
 
 -(void)recursiveScrollWithDirection:(enum ScrollDirection)direction timeLeft:(NSTimeInterval)timeLeft posLeft:(int)posLeft {
     double timePerPosition = timeLeft / posLeft;
-    double pictureSize = self.frame.size.width;
     double currentOffset = (direction == kRight)?self.contentOffset.x:self.contentSize.width - (self.contentOffset.x + self.frame.size.width);
     double timeUntilEndOfScrollView = (self.contentSize.width - currentOffset) / timePerPosition;
     
@@ -348,7 +348,7 @@ enum ScrollDirection {
 }
 
 -(int)currentAnimalId {
-    return self.currentIndex;
+    return [self.shuffledIndexes[[self getArrayIndexForPositionIndex:3]] intValue];
 }
 
 @end

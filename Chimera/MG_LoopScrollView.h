@@ -29,6 +29,7 @@
     UITapGestureRecognizer * _tapGestureRecognizer;
 }
 
+@property (nonatomic,strong) NSString *name;
 @property (nonatomic,assign) int currentIndex;
 @property (nonatomic,readonly) int currentAnimalId;
 @property (nonatomic,strong) id<MG_LoopScrollViewDelegate> mgdelegate;

@@ -20,6 +20,7 @@
 }
 
 -(void)requestProductDetails {
+    return;
     if ([SKPaymentQueue canMakePayments]) {
         SKProductsRequest *request= [[SKProductsRequest alloc]
                                      initWithProductIdentifiers:

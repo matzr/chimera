@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Appirater.h"
 #import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate() {
@@ -38,6 +39,15 @@
 
     [Crashlytics startWithAPIKey:@"7e3a885f3571e836c73ceff201073edd359e84d5"];
     
+    
+    [Appirater setAppId:@"643073397"];
+    [Appirater setDaysUntilPrompt:2];
+    [Appirater setUsesUntilPrompt:10];
+    [Appirater setSignificantEventsUntilPrompt:-1];
+    [Appirater setTimeBeforeReminding:2];
+    
+    [Appirater appLaunched:YES];
+
     return YES;
 }
 
@@ -72,6 +82,7 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [backgroundMusicPlayer play];
+    [Appirater appEnteredForeground:YES];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

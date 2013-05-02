@@ -28,18 +28,21 @@
 - (void)viewDidLoad {
     [self.topLoopScrollView loadPicturesWithPrefix:@"part_head"];
     [self.topLoopScrollView setPicturesSize:CGSizeMake(320, 260) andOffset:CGPointMake(0, -10)];
-    [self.topLoopScrollView randomizePosition];
+    self.topLoopScrollView.name = @"top";
+//    [self.topLoopScrollView randomizePosition];
     [self.middleLoopScrollView loadPicturesWithPrefix:@"part_body"];
     [self.middleLoopScrollView setPicturesSize:CGSizeMake(320, 330) andOffset:CGPointMake(0, -89)];
-    [self.middleLoopScrollView randomizePosition];
+    self.middleLoopScrollView.name = @"middle";
+//    [self.middleLoopScrollView randomizePosition];
     [self.bottomLoopScrollView loadPicturesWithPrefix:@"part_feet"];
     [self.bottomLoopScrollView setPicturesSize:CGSizeMake(320, 280) andOffset:CGPointMake(0, -105)];
+    self.bottomLoopScrollView.name = @"bottom";
+//    [self.bottomLoopScrollView randomizePosition];
     
     self.topLoopScrollView.mgdelegate = self;
     self.middleLoopScrollView.mgdelegate = self;
     self.bottomLoopScrollView.mgdelegate = self;
     
-    [self.bottomLoopScrollView randomizePosition];
     self.successAnimationImageView.hidden = YES;
     
     self.paymentProcessor = [[PaymentProcessor alloc] init];
