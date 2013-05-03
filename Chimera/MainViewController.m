@@ -2,6 +2,7 @@
 #import "AppDelegate.h"
 #import "PaymentProcessor.h"
 #import "Preferences.h"
+#import "SettingsViewController.h"
 
 @interface MainViewController() {
     
@@ -123,6 +124,8 @@
 }
 
 - (void)viewDidUnload {
+    [self setDoubleTapToGoLabel:nil];
+    [self setSettingsTapGestureRecognizer:nil];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
@@ -145,4 +148,23 @@
     }
 }
 
+- (IBAction)doubleTap:(id)sender {
+    SettingsViewController *settingsVc = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingsScreen"];
+    [self presentViewController:settingsVc animated:YES completion:^{
+        
+    }];
+}
+
+- (IBAction)singleTapSettings:(id)sender {
+    [UIView animateWithDuration:.5 animations:^{
+        self.doubleTapToGoLabel.alpha = 1;
+    }];
+    [self performSelector:@selector(hideDoubleTapLabel) withObject:nil afterDelay:3];
+}
+
+-(void)hideDoubleTapLabel {
+    [UIView animateWithDuration:.5 animations:^{
+        self.doubleTapToGoLabel.alpha = 0;
+    }];
+}
 @end

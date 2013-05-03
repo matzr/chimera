@@ -82,6 +82,13 @@
 		4ED24C26173330870024AE01 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED24C25173330870024AE01 /* libGoogleAnalytics.a */; };
 		4ED24C291733340C0024AE01 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED24C281733340C0024AE01 /* CoreData.framework */; };
 		4ED24C2C1733397F0024AE01 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED24C2B1733397F0024AE01 /* Preferences.m */; };
+		4ED24C33173399EB0024AE01 /* part_body_blur_0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C2D173399EB0024AE01 /* part_body_blur_0007.png */; };
+		4ED24C34173399EB0024AE01 /* part_body_blur_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C2E173399EB0024AE01 /* part_body_blur_0008.png */; };
+		4ED24C35173399EB0024AE01 /* part_feet_blur_0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C2F173399EB0024AE01 /* part_feet_blur_0007.png */; };
+		4ED24C36173399EB0024AE01 /* part_feet_blur_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C30173399EB0024AE01 /* part_feet_blur_0008.png */; };
+		4ED24C37173399EB0024AE01 /* part_head_blur_0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C31173399EB0024AE01 /* part_head_blur_0007.png */; };
+		4ED24C38173399EB0024AE01 /* part_head_blur_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C32173399EB0024AE01 /* part_head_blur_0008.png */; };
+		4ED24C3A1733A24C0024AE01 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C391733A24C0024AE01 /* button.png */; };
 		4EE01320172F396200934896 /* cheering.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EE0131F172F396200934896 /* cheering.mp3 */; };
 		4EE0132D17306C9900934896 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE0132C17306C9900934896 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EE0133017306CDF00934896 /* PaymentProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE0132F17306CDF00934896 /* PaymentProcessor.m */; };
@@ -223,6 +230,13 @@
 		4ED24C281733340C0024AE01 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4ED24C2A1733397F0024AE01 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
 		4ED24C2B1733397F0024AE01 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
+		4ED24C2D173399EB0024AE01 /* part_body_blur_0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_body_blur_0007.png; sourceTree = "<group>"; };
+		4ED24C2E173399EB0024AE01 /* part_body_blur_0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_body_blur_0008.png; sourceTree = "<group>"; };
+		4ED24C2F173399EB0024AE01 /* part_feet_blur_0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_feet_blur_0007.png; sourceTree = "<group>"; };
+		4ED24C30173399EB0024AE01 /* part_feet_blur_0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_feet_blur_0008.png; sourceTree = "<group>"; };
+		4ED24C31173399EB0024AE01 /* part_head_blur_0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_head_blur_0007.png; sourceTree = "<group>"; };
+		4ED24C32173399EB0024AE01 /* part_head_blur_0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_head_blur_0008.png; sourceTree = "<group>"; };
+		4ED24C391733A24C0024AE01 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		4EE0131F172F396200934896 /* cheering.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cheering.mp3; sourceTree = "<group>"; };
 		4EE0132C17306C9900934896 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4EE0132E17306CDF00934896 /* PaymentProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentProcessor.h; sourceTree = "<group>"; };
@@ -323,6 +337,12 @@
 				4E2A7012160A7059007AC03B /* part_head_blur_0004.png */,
 				4E2A7013160A7059007AC03B /* part_head_blur_0005.png */,
 				4E2A7014160A7059007AC03B /* part_head_blur_0006.png */,
+				4ED24C2D173399EB0024AE01 /* part_body_blur_0007.png */,
+				4ED24C2E173399EB0024AE01 /* part_body_blur_0008.png */,
+				4ED24C2F173399EB0024AE01 /* part_feet_blur_0007.png */,
+				4ED24C30173399EB0024AE01 /* part_feet_blur_0008.png */,
+				4ED24C31173399EB0024AE01 /* part_head_blur_0007.png */,
+				4ED24C32173399EB0024AE01 /* part_head_blur_0008.png */,
 			);
 			path = "part-blur";
 			sourceTree = "<group>";
@@ -425,6 +445,7 @@
 		4E898C2B15FA989D000E9677 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4ED24C391733A24C0024AE01 /* button.png */,
 				4ED24C19173325290024AE01 /* switch_off.png */,
 				4ED24C1A173325290024AE01 /* switch_on.png */,
 				4ED24C17173320C90024AE01 /* logo-lesbandits-60x80.png */,
@@ -940,6 +961,13 @@
 				4ED24C1B173325290024AE01 /* switch_off.png in Resources */,
 				4ED24C1C173325290024AE01 /* switch_on.png in Resources */,
 				4ED24C1E17332F070024AE01 /* random.mp3 in Resources */,
+				4ED24C33173399EB0024AE01 /* part_body_blur_0007.png in Resources */,
+				4ED24C34173399EB0024AE01 /* part_body_blur_0008.png in Resources */,
+				4ED24C35173399EB0024AE01 /* part_feet_blur_0007.png in Resources */,
+				4ED24C36173399EB0024AE01 /* part_feet_blur_0008.png in Resources */,
+				4ED24C37173399EB0024AE01 /* part_head_blur_0007.png in Resources */,
+				4ED24C38173399EB0024AE01 /* part_head_blur_0008.png in Resources */,
+				4ED24C3A1733A24C0024AE01 /* button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

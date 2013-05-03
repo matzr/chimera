@@ -17,6 +17,10 @@
 @property (strong, nonatomic) IBOutlet MG_LoopScrollView *middleLoopScrollView;
 @property (strong, nonatomic) IBOutlet MG_LoopScrollView *bottomLoopScrollView;
 
+@property (weak, nonatomic) IBOutlet UILabel *doubleTapToGoLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *successAnimationImageView;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *settingsTapGestureRecognizer;
+- (IBAction)doubleTap:(id)sender;
+- (IBAction)singleTapSettings:(id)sender;
 
 @end
