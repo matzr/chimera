@@ -9,7 +9,9 @@
 #import "MG_LoopScrollView.h"
 #import "AppDelegate.h"
 
-@interface MG_LoopScrollView()
+@interface MG_LoopScrollView() {
+    NSString *_prefix;
+}
 
 @property (nonatomic, strong) UIView* normalImagesContainer;
 @property (nonatomic, strong) UIView* blurredImagesContainer;
@@ -37,22 +39,34 @@ enum ScrollDirection {
 @synthesize blurredImagesContainer;
 @synthesize mgdelegate;
 
--(void)internalInit {
+-(void)reset {
     _slideImages = [NSMutableArray array];
     _slideImages_blurred = [NSMutableArray array];
     _slideImageViews = [NSMutableArray array];
     _slideImageViews_blurred = [NSMutableArray array];
+    for (UIView *view in self.normalImagesContainer.subviews) {
+        [view removeFromSuperview];
+    }
+    for (UIView *view in self.blurredImagesContainer.subviews) {
+        [view removeFromSuperview];
+    }
+    self.normalImagesContainer.alpha = 1;
+    self.blurredImagesContainer.alpha = 0;
+    _currentStartIndex = 0;
+    _currentOffset = 0;
+    _currentIndex = 0;
+}
+
+-(void)internalInit {
     self.normalImagesContainer = [[UIView alloc]init];
     self.blurredImagesContainer = [[UIView alloc]init];
     [self addSubview:self.normalImagesContainer];
     [self addSubview:self.blurredImagesContainer];
-    self.normalImagesContainer.alpha = 1;
-    self.blurredImagesContainer.alpha = 0;
     _tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapScrollView:)];
     [self addGestureRecognizer:_tapGestureRecognizer];
     self.delegate = self;
     [self setShowsHorizontalScrollIndicator:NO];
-    _currentStartIndex = 0;
+    [self reset];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -128,7 +142,7 @@ enum ScrollDirection {
     double totalContentWidth = 0;
     double height = 0;
     UIImageView *imageView;
-    
+        
     if ([_slideImages count]) {
         if (!(_picturesSize.height)) {
             _picturesSize = ((UIImage*)[_slideImages objectAtIndex:0]).size;
@@ -176,6 +190,7 @@ enum ScrollDirection {
     NSMutableArray *tempNormal = [NSMutableArray array];
     NSMutableArray *tempBlurred = [NSMutableArray array];
     self.shuffledIndexes = [NSMutableArray array];
+    _prefix = prefix;
     int i = 0;
     for (NSNumber *pictureIndex in self.pictureIndexes) {
         filenameSuffix = [NSString stringWithFormat:format, pictureIndex.intValue];
@@ -275,16 +290,24 @@ enum ScrollDirection {
     self.currentIndex = randNum;
 }
 
+- (void)scrollLeft {
+    [self scrollRectToVisible:CGRectMake(self.contentOffset.x - self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:YES];
+    [self performSelector:@selector(wentToPrevious) withObject:self afterDelay:.5];
+}
+
+- (void)scrollRight {
+    [self scrollRectToVisible:CGRectMake(self.contentOffset.x + self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:YES];
+    [self performSelector:@selector(wentToNext) withObject:self afterDelay:.5];
+}
+
 -(void)tapScrollView:(UIGestureRecognizer *)gestureRecognizer {
     [self blur];
     [self performSelector:@selector(unblur) withObject:nil afterDelay:.3];
     CGPoint touchLocation = [gestureRecognizer locationOfTouch:0 inView:self];
     if (touchLocation.x - self.contentOffset.x < self.frame.size.width / 2) {
-        [self scrollRectToVisible:CGRectMake(self.contentOffset.x - self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:YES];
-        [self performSelector:@selector(wentToPrevious) withObject:self afterDelay:.5];
+        [self scrollLeft];
     } else {
-        [self scrollRectToVisible:CGRectMake(self.contentOffset.x + self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:YES];
-        [self performSelector:@selector(wentToNext) withObject:self afterDelay:.5];
+        [self scrollRight];
     }
 }
 
@@ -316,30 +339,73 @@ enum ScrollDirection {
 }
 
 -(void)quickSpin {
+    self.isAutoSpinning = YES;
     enum ScrollDirection scrollDir = (arc4random_uniform(2))?kRight:kLeft;
+    usleep(1000);
     int numberOfPosToScroll = 10 + arc4random_uniform(16);
+    NSLog(@"%@ will spin to the %@ for %d position(s)", self.name, (scrollDir == kLeft)?@"left":@"right", numberOfPosToScroll);
     
-    [self blur];
-    [self setContentOffset:CGPointMake((scrollDir == kRight)?0:(self.contentSize.width - self.frame.size.width), 0) animated:NO];
 
-    [self recursiveScrollWithDirection: scrollDir timeLeft:3 posLeft:numberOfPosToScroll];
+    //    [self autoSpinFor:numberOfPosToScroll withDirection:scrollDir];
+    
+    //TODO
+    // 1. Add a sound effet for the duration of the animation
+
+    // 2. Create an overlay image that include the number of animals to spin
+    NSString *format = [NSString stringWithFormat:@"%%0%dd", 4];
+    int totalWidth = numberOfPosToScroll * _picturesSize.width;
+    UIView *overlay = [[UIView alloc]initWithFrame:CGRectMake((scrollDir == kRight) ? 0 : -((numberOfPosToScroll - 1) * _picturesSize.width)
+                                                              , 0, totalWidth, _picturesSize.height)];
+    overlay.tag = 238732478;
+    NSMutableArray *removedItems = [NSMutableArray arrayWithArray:[self subviews]];
+    for (UIView* viewToRemove in removedItems) {
+        [viewToRemove removeFromSuperview];
+    }
+    for (int i=0; i < numberOfPosToScroll + 4; i++) {
+        int suffix = [[_shuffledIndexes objectAtIndex:(i % [_shuffledIndexes count])] intValue];
+        NSString *filename = [NSString stringWithFormat:@"%@_%@", _prefix, [NSString stringWithFormat:format, suffix]];
+        UIImage *image = [UIImage imageNamed:filename];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        NSLog(filename);
+        imageView.frame = CGRectMake(i * _picturesSize.width, _picturesOffset.y, _picturesSize.width, _picturesSize.height);
+        [overlay addSubview:imageView];
+    }
+    
+    // 3. Add the overlay
+    [self addSubview:overlay];
+    
+    // 4. Set the actual scrollview to the correct offset
+
+    // 5. Animate the overlay
+    [UIView animateWithDuration:5 animations:^{
+        CGRect frame = overlay.frame;
+        frame.origin.x = (scrollDir == kRight)  ? -((numberOfPosToScroll - 1) * _picturesSize.width) : 0;
+        overlay.frame = frame;
+    } completion:^(BOOL finished) {
+        // 6. Remove the overlay at the end of the animation (it must match whatever is under it)
+        [overlay removeFromSuperview];
+        for (UIView* viewToAdd in removedItems) {
+            [self addSubview:viewToAdd];
+        }
+    }];
 }
 
--(void)recursiveScrollWithDirection:(enum ScrollDirection)direction timeLeft:(NSTimeInterval)timeLeft posLeft:(int)posLeft {
-    double timePerPosition = timeLeft / posLeft;
-    double currentOffset = (direction == kRight)?self.contentOffset.x:self.contentSize.width - (self.contentOffset.x + self.frame.size.width);
-    double timeUntilEndOfScrollView = (self.contentSize.width - currentOffset) / timePerPosition;
-    
-    if (timeUntilEndOfScrollView  > timeLeft) {
-        //Won't scroll until current beginning/end of scrollview
+-(void)autoSpinFor:(int)numberOfPositionsToScroll  withDirection:(enum ScrollDirection)direction {
+    if (direction == kLeft) {
+        [self scrollLeft];
     } else {
-        NSTimeInterval animationDuration = ([_slideImages count] - 1) * timePerPosition;
-        [UIView animateWithDuration:animationDuration animations:^{
-            double newOffset = (direction==kRight)?self.contentSize.width - self.frame.size.width:0;
-            [self setContentOffset:CGPointMake(newOffset, 0) animated:NO];
-        } completion:^(BOOL finished) {
-            //TODO: reset the new position of the scrollview to the beginning of end of the content + recursive call to the same method with updated values
-        }];
+        [self scrollRight];
+    }
+    numberOfPositionsToScroll--;
+    if (numberOfPositionsToScroll) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, nil), ^ {
+            usleep(250000);
+            dispatch_async(dispatch_get_main_queue(),^ {
+                [self autoSpinFor:numberOfPositionsToScroll withDirection:direction];
+            });
+        });
+    } else {
+        self.isAutoSpinning = NO;
     }
 }
 

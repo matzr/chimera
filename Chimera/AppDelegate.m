@@ -8,12 +8,17 @@
 
 #import "AppDelegate.h"
 #import "Appirater.h"
+#import "Preferences.h"
 #import <Crashlytics/Crashlytics.h>
+
+static AppDelegate *_instance;
 
 @interface AppDelegate() {
     AVAudioPlayer *backgroundMusicPlayer;
     AVAudioPlayer *sweepSoundPlayer;
     AVAudioPlayer *cheeringSoundPlayer;
+    AVAudioPlayer *randomizerSoundPlayer;
+    PaymentProcessor *_paymentProcessor;
 }
 
 @end
@@ -22,16 +27,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    _instance = self;
+    
+    _paymentProcessor = [[PaymentProcessor alloc] init];
+    
     application.applicationSupportsShakeToEdit = YES;
     
     backgroundMusicPlayer = [self getMusicPlayerForPathForResource:@"dans_la_jungle" withExtension:@"mp3"];
     backgroundMusicPlayer.numberOfLoops = -1;
     
     sweepSoundPlayer = [self getMusicPlayerForPathForResource:@"whip_whoosh_large_dowel_rod" withExtension:@"mp3"];
-    sweepSoundPlayer.numberOfLoops = 1;
+    sweepSoundPlayer.numberOfLoops = 0;
     
     cheeringSoundPlayer = [self getMusicPlayerForPathForResource:@"cheering" withExtension:@"mp3"];
-    cheeringSoundPlayer.numberOfLoops = 1;
+    cheeringSoundPlayer.numberOfLoops = 0;
+    
+    randomizerSoundPlayer = [self getMusicPlayerForPathForResource:@"random" withExtension:@"mp3"];
+    randomizerSoundPlayer.numberOfLoops = 0;
     
     // start of your application:didFinishLaunchingWithOptions // ...
     [TestFlight takeOff:@"758ff72b-8faf-4a51-a945-9eced5c3276c"];
@@ -45,8 +57,14 @@
     [Appirater setUsesUntilPrompt:10];
     [Appirater setSignificantEventsUntilPrompt:-1];
     [Appirater setTimeBeforeReminding:2];
-    
     [Appirater appLaunched:YES];
+    
+//    [GAI sharedInstance].debug = YES;
+//    [GAI sharedInstance].optOut = NO;
+//    [GAI sharedInstance].dispatchInterval = 5;
+//    [GAI sharedInstance].trackUncaughtExceptions = YES;
+//    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-40622546-1"];
+//    [self.tracker setSessionStart:YES];
 
     return YES;
 }
@@ -81,7 +99,9 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    [backgroundMusicPlayer play];
+    if ([Preferences instance].backgroundSoundsEnabled) {
+        [backgroundMusicPlayer play];
+    }
     [Appirater appEnteredForeground:YES];
 }
 
@@ -91,13 +111,40 @@
 }
 
 -(void)playSweepingSound {
-    [sweepSoundPlayer stop];
-    [sweepSoundPlayer play];
+    if ([Preferences instance].soundEffectsEnabled) {
+        [sweepSoundPlayer stop];
+        [sweepSoundPlayer play];
+    }
 }
 
 -(void)playCheeringSound {
-    [cheeringSoundPlayer stop];
-    [cheeringSoundPlayer play];
+    if ([Preferences instance].soundEffectsEnabled) {
+        [cheeringSoundPlayer stop];
+        [cheeringSoundPlayer play];
+    }
+}
+
+-(void)playRandomizerSound {
+    if ([Preferences instance].soundEffectsEnabled) {
+        [randomizerSoundPlayer stop];
+        [randomizerSoundPlayer play];
+    }
+}
+
++(AppDelegate *)instance {
+    return _instance;
+}
+
+-(PaymentProcessor *)paymentProcessor {
+    return _paymentProcessor;
+}
+
+-(void)startBackgroundSound {
+    [backgroundMusicPlayer play];
+}
+
+-(void)stopBackgroundSound {
+    [backgroundMusicPlayer stop];
 }
 
 @end

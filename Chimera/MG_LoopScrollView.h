@@ -34,7 +34,9 @@
 @property (nonatomic,readonly) int currentAnimalId;
 @property (nonatomic,strong) id<MG_LoopScrollViewDelegate> mgdelegate;
 @property (nonatomic,strong) NSArray *pictureIndexes;
+@property (nonatomic,assign) BOOL isAutoSpinning;
 
+-(void)reset;
 -(void)loadPicturesWithPrefix:(NSString*)prefix;
 -(void)setPicturesSize:(CGSize)newSize andOffset:(CGPoint)newOffset;
 -(void)randomizePosition;
