@@ -295,9 +295,19 @@ enum ScrollDirection {
     [self performSelector:@selector(wentToPrevious) withObject:self afterDelay:.5];
 }
 
+- (void)moveLeft {
+    [self scrollRectToVisible:CGRectMake(self.contentOffset.x - self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:NO];
+    [self wentToPrevious];
+}
+
 - (void)scrollRight {
     [self scrollRectToVisible:CGRectMake(self.contentOffset.x + self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:YES];
     [self performSelector:@selector(wentToNext) withObject:self afterDelay:.5];
+}
+
+- (void)moveRight {
+    [self scrollRectToVisible:CGRectMake(self.contentOffset.x + self.frame.size.width, 0, self.frame.size.width, self.frame.size.height) animated:NO];
+    [self wentToNext];
 }
 
 -(void)tapScrollView:(UIGestureRecognizer *)gestureRecognizer {
@@ -339,75 +349,73 @@ enum ScrollDirection {
 }
 
 -(void)quickSpin {
+    if (self.isAutoSpinning) {
+        return;
+    }
     self.isAutoSpinning = YES;
-    enum ScrollDirection scrollDir = (arc4random_uniform(2))?kRight:kLeft;
+    //enum ScrollDirection scrollDir = (arc4random_uniform(2))?kRight:kLeft;
+    enum ScrollDirection scrollDir = kRight;
     usleep(1000);
     int numberOfPosToScroll = 10 + arc4random_uniform(16);
     NSLog(@"%@ will spin to the %@ for %d position(s)", self.name, (scrollDir == kLeft)?@"left":@"right", numberOfPosToScroll);
-    
-
-    //    [self autoSpinFor:numberOfPosToScroll withDirection:scrollDir];
-    
     //TODO
-    // 1. Add a sound effet for the duration of the animation
-
-    // 2. Create an overlay image that include the number of animals to spin
     NSString *format = [NSString stringWithFormat:@"%%0%dd", 4];
     int totalWidth = numberOfPosToScroll * _picturesSize.width;
-    UIView *overlay = [[UIView alloc]initWithFrame:CGRectMake((scrollDir == kRight) ? 0 : -((numberOfPosToScroll - 1) * _picturesSize.width)
-                                                              , 0, totalWidth, _picturesSize.height)];
+    int x = (scrollDir == kRight) ? 0 : -((numberOfPosToScroll - 1) * _picturesSize.width);
+    x += _currentOffset;
+    UIView *overlay = [[UIView alloc]initWithFrame:CGRectMake(x, 0, totalWidth, _picturesSize.height)];
     overlay.tag = 238732478;
-    NSMutableArray *removedItems = [NSMutableArray arrayWithArray:[self subviews]];
-    for (UIView* viewToRemove in removedItems) {
-        [viewToRemove removeFromSuperview];
-    }
-    for (int i=0; i < numberOfPosToScroll + 4; i++) {
-        int suffix = [[_shuffledIndexes objectAtIndex:(i % [_shuffledIndexes count])] intValue];
-        NSString *filename = [NSString stringWithFormat:@"%@_%@", _prefix, [NSString stringWithFormat:format, suffix]];
-        UIImage *image = [UIImage imageNamed:filename];
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        NSLog(filename);
+    int suffix;
+    NSString *filename;
+    UIImage *image;
+    suffix = [self currentAnimalId] + 1;
+    filename = [NSString stringWithFormat:@"%@_%@", _prefix, [NSString stringWithFormat:format, suffix]];
+    image = [UIImage imageNamed:filename];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = CGRectMake(0, _picturesOffset.y, _picturesSize.width, _picturesSize.height);
+    [overlay addSubview:imageView];
+    
+    for (int i = 1; i < numberOfPosToScroll - 2; i++) {
+        suffix = [[_shuffledIndexes objectAtIndex:(i % [_shuffledIndexes count])] intValue] + 1;
+        filename = [NSString stringWithFormat:@"%@_blur_%@", _prefix, [NSString stringWithFormat:format, suffix]];
+        image = [UIImage imageNamed:filename];
+        imageView = [[UIImageView alloc] initWithImage:image];
         imageView.frame = CGRectMake(i * _picturesSize.width, _picturesOffset.y, _picturesSize.width, _picturesSize.height);
         [overlay addSubview:imageView];
     }
-    
-    // 3. Add the overlay
     [self addSubview:overlay];
     
-    // 4. Set the actual scrollview to the correct offset
+    suffix = kRight ? [self nextAnimalId] : [self previousAnimalId];
+    suffix += 1;
+    filename = [NSString stringWithFormat:@"%@_%@", _prefix, [NSString stringWithFormat:format, suffix]];
+    image = [UIImage imageNamed:filename];
+    imageView = [[UIImageView alloc] initWithImage:image];
+    imageView.frame = CGRectMake((numberOfPosToScroll - 1) * _picturesSize.width, _picturesOffset.y, _picturesSize.width, _picturesSize.height);
+    [overlay addSubview:imageView];
 
-    // 5. Animate the overlay
+    
+    // 4b. match the last element
+    self.normalImagesContainer.hidden = YES;
+    self.blurredImagesContainer.hidden = YES;
+    
     [UIView animateWithDuration:5 animations:^{
         CGRect frame = overlay.frame;
         frame.origin.x = (scrollDir == kRight)  ? -((numberOfPosToScroll - 1) * _picturesSize.width) : 0;
+        frame.origin.x += _currentOffset;
         overlay.frame = frame;
     } completion:^(BOOL finished) {
-        // 6. Remove the overlay at the end of the animation (it must match whatever is under it)
         [overlay removeFromSuperview];
-        for (UIView* viewToAdd in removedItems) {
-            [self addSubview:viewToAdd];
+        if (scrollDir == kRight) {
+            [self moveRight];
+        } else {
+            [self moveLeft];
         }
+        self.normalImagesContainer.hidden = NO;
+        self.blurredImagesContainer.hidden = NO;
+        self.isAutoSpinning = NO;
     }];
 }
 
--(void)autoSpinFor:(int)numberOfPositionsToScroll  withDirection:(enum ScrollDirection)direction {
-    if (direction == kLeft) {
-        [self scrollLeft];
-    } else {
-        [self scrollRight];
-    }
-    numberOfPositionsToScroll--;
-    if (numberOfPositionsToScroll) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, nil), ^ {
-            usleep(250000);
-            dispatch_async(dispatch_get_main_queue(),^ {
-                [self autoSpinFor:numberOfPositionsToScroll withDirection:direction];
-            });
-        });
-    } else {
-        self.isAutoSpinning = NO;
-    }
-}
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [((AppDelegate *)[UIApplication sharedApplication].delegate) playSweepingSound];
@@ -415,6 +423,22 @@ enum ScrollDirection {
 
 -(int)currentAnimalId {
     return [self.shuffledIndexes[[self getArrayIndexForPositionIndex:[self centerIndex]]] intValue];
+}
+
+-(int)nextAnimalId {
+    int index = [self getArrayIndexForPositionIndex:[self centerIndex]];
+    if (++index == [_slideImages count]) {
+        index = 0;
+    }
+    return [self.shuffledIndexes[index] intValue];
+}
+
+-(int)previousAnimalId {
+    int index = [self getArrayIndexForPositionIndex:[self centerIndex]];
+    if (--index == -1) {
+        index = [_slideImages count] - 1;
+    }
+    return [self.shuffledIndexes[index] intValue];
 }
 
 @end

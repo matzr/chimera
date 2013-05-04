@@ -138,11 +138,10 @@
     if (self.topLoopScrollView.isAutoSpinning || self.middleLoopScrollView.isAutoSpinning || self.bottomLoopScrollView.isAutoSpinning) {
         return;
     }
-    
+
     [[AppDelegate instance].tracker trackEventWithCategory:@"UserAction" withAction:@"Scrolled" withLabel:nil withValue:nil];
     
     if ( (self.topLoopScrollView.currentAnimalId == self.middleLoopScrollView.currentAnimalId) && (self.topLoopScrollView.currentAnimalId == self.bottomLoopScrollView.currentAnimalId)) {
-        NSLog(@"selectionChanged: %d/%d/%d", self.topLoopScrollView.currentAnimalId, self.middleLoopScrollView.currentAnimalId, self.bottomLoopScrollView.currentAnimalId);
         [self onSuccessAnimation];
         [[AppDelegate instance] playCheeringSound];
     }
