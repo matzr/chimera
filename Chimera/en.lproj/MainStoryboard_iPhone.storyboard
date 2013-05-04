@@ -34,15 +34,15 @@
                             </imageView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" id="hF9-il-2n5" customClass="MG_LoopScrollView">
                                 <rect key="frame" x="0.0" y="307" width="320" height="153"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
                             </scrollView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" id="bZt-2U-6Rz" customClass="MG_LoopScrollView">
                                 <rect key="frame" x="0.0" y="154" width="320" height="153"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
                             </scrollView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" id="pYo-WY-yTm" customClass="MG_LoopScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
                             </scrollView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" text="double-tap to go..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Upt-ph-Amn">
                                 <rect key="frame" x="40" y="430" width="147" height="21"/>
@@ -68,10 +68,22 @@
                                     <outletCollection property="gestureRecognizers" destination="zRF-Zo-eEM" appends="YES" id="a58-xl-oko"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" id="JCL-CA-7bP">
+                                <rect key="frame" x="110" y="180" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" animating="YES" style="whiteLarge" id="m8C-v3-U2u">
+                                        <rect key="frame" x="32" y="31" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.63" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="activityView" destination="JCL-CA-7bP" id="rKk-2b-na6"/>
                         <outlet property="bottomLoopScrollView" destination="hF9-il-2n5" id="Jkb-7H-z0G"/>
                         <outlet property="doubleTapToGoLabel" destination="Upt-ph-Amn" id="Itm-VK-roh"/>
                         <outlet property="middleLoopScrollView" destination="bZt-2U-6Rz" id="tvq-vd-GxC"/>
@@ -118,11 +130,11 @@
                                 </connections>
                             </switch>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ligne.png" id="Uzl-jk-xxx">
-                                <rect key="frame" x="0.0" y="228" width="320" height="10"/>
+                                <rect key="frame" x="0.0" y="226" width="320" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ligne.png" id="SIT-Q3-HDx">
-                                <rect key="frame" x="0.0" y="357" width="320" height="10"/>
+                                <rect key="frame" x="0.0" y="360" width="320" height="10"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="BACK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gxb-7W-6Gy">
@@ -144,49 +156,49 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Shake for random" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6zu-9Q-lSY">
-                                <rect key="frame" x="35" y="255" width="132" height="21"/>
+                                <rect key="frame" x="35" y="251" width="132" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sound effects" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nj7-uH-DSB">
-                                <rect key="frame" x="35" y="290" width="111" height="21"/>
+                                <rect key="frame" x="35" y="286" width="111" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Background sounds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KxA-dO-JjE">
-                                <rect key="frame" x="35" y="319" width="138" height="30"/>
+                                <rect key="frame" x="35" y="315" width="138" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="8VK-Vt-F95">
-                                <rect key="frame" x="204" y="252" width="79" height="27"/>
+                                <rect key="frame" x="204" y="248" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="shakeForRandomChange:" destination="qOa-jc-bsL" eventType="valueChanged" id="6aQ-fj-Da1"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Uar-sr-MD5">
-                                <rect key="frame" x="204" y="287" width="79" height="27"/>
+                                <rect key="frame" x="204" y="283" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="soundFxChange:" destination="qOa-jc-bsL" eventType="valueChanged" id="Npb-Eu-8CL"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="hE0-rv-GcT">
-                                <rect key="frame" x="204" y="322" width="79" height="27"/>
+                                <rect key="frame" x="204" y="318" width="79" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="backgroundSoundsChange:" destination="qOa-jc-bsL" eventType="valueChanged" id="su7-Wh-uUq"/>
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vH4-dl-iXO">
-                                <rect key="frame" x="2" y="1" width="37" height="31"/>
+                                <rect key="frame" x="2" y="4" width="37" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Button" image="ideo_60x60_white_0003.png">
@@ -201,7 +213,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo-lesbandits-60x80.png" id="1df-Vl-nII">
-                                <rect key="frame" x="130" y="371" width="60" height="80"/>
+                                <rect key="frame" x="130" y="378" width="60" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
                         </subviews>
@@ -219,18 +231,25 @@
             </objects>
             <point key="canvasLocation" x="482" y="182"/>
         </scene>
-        <!--View Controller-->
+        <!--Purchase Screen View Controller-->
         <scene sceneID="2Rf-x3-zgC">
             <objects>
-                <viewController id="Kkw-uR-Yl2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PurchaseScreen" id="Kkw-uR-Yl2" customClass="PurchaseScreenViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X4A-th-srr">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background_0001.png" id="96m-4i-r7S">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="background_0002.png" id="96m-4i-r7S">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Purchase the full animal pack for ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" id="EkC-Ov-xev">
+                                <rect key="frame" x="20" y="325" width="280" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="19"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="STORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bNh-DD-187">
                                 <rect key="frame" x="99" y="93" width="119" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -239,24 +258,58 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ysf-Tu-8XA">
-                                <rect key="frame" x="56" y="397" width="205" height="44"/>
+                                <rect key="frame" x="56" y="396" width="205" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="PURCHASE" backgroundImage="button.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" backgroundImage="button-pressed.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="purchasePack1:" destination="Kkw-uR-Yl2" eventType="touchUpInside" id="iIH-ki-ZUV"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo_chimera.png" id="bPK-WI-0oo">
                                 <rect key="frame" x="99" y="20" width="123" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="animals-group.png" id="uhg-pB-xRs">
+                                <rect key="frame" x="20" y="139" width="280" height="189"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="BACK" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TgQ-Ai-UUg">
+                                <rect key="frame" x="51" y="8" width="43" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nxJ-3t-fiZ">
+                                <rect key="frame" x="10" y="3" width="37" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Button" image="ideo_60x60_white_0003.png">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="back:" destination="qOa-jc-bsL" eventType="touchUpInside" id="ocz-ja-IsZ"/>
+                                    <action selector="back:" destination="Kkw-uR-Yl2" eventType="touchUpInside" id="uJi-pO-Ul1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="purchaseMessageLabel" destination="EkC-Ov-xev" id="2yU-BY-RHd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ybI-J7-8DK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -264,8 +317,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="animals-group.png" width="700" height="460"/>
         <image name="background_0001.png" width="640" height="1136"/>
         <image name="background_0002.png" width="640" height="1136"/>
+        <image name="button-pressed.png" width="484" height="96"/>
         <image name="button.png" width="484" height="96"/>
         <image name="ideo_60x60_white_0003.png" width="60" height="60"/>
         <image name="ligne.png" width="640" height="20"/>
@@ -282,12 +337,21 @@
             <relationships>
                 <relationship kind="action" name="doubleTap:"/>
                 <relationship kind="action" name="singleTapSettings:"/>
+                <relationship kind="outlet" name="activityView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="bottomLoopScrollView" candidateClass="MG_LoopScrollView"/>
                 <relationship kind="outlet" name="doubleTapToGoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="middleLoopScrollView" candidateClass="MG_LoopScrollView"/>
                 <relationship kind="outlet" name="settingsTapGestureRecognizer" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="successAnimationImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="topLoopScrollView" candidateClass="MG_LoopScrollView"/>
+            </relationships>
+        </class>
+        <class className="PurchaseScreenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PurchaseScreenViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="purchasePack1:"/>
+                <relationship kind="outlet" name="purchaseMessageLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="SettingsViewController" superclassName="UIViewController">

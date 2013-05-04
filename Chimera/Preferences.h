@@ -16,5 +16,6 @@
 @property (nonatomic,assign) BOOL soundEffectsEnabled;
 @property (nonatomic,assign) BOOL shakeForRandom;
 @property (nonatomic,assign) BOOL extraAnimalsEnabled;
+@property (nonatomic,assign) BOOL hasPurchasedPack1;
 
 @end

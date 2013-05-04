@@ -58,6 +58,9 @@ static AppDelegate *_instance;
     [Appirater setSignificantEventsUntilPrompt:-1];
     [Appirater setTimeBeforeReminding:2];
     [Appirater appLaunched:YES];
+    
+    [self.paymentProcessor requestProductDetails];
+
 
 //    [GAI sharedInstance].debug = YES;
 //    [GAI sharedInstance].optOut = NO;
@@ -94,6 +97,7 @@ static AppDelegate *_instance;
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [self.paymentProcessor requestProductDetails];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

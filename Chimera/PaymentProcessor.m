@@ -14,13 +14,13 @@
 -(id)init {
     self = [super init];
     if (self) {
+        self.products = nil;
         [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
     }
     return self;
 }
 
 -(void)requestProductDetails {
-    return;
     if ([SKPaymentQueue canMakePayments]) {
         SKProductsRequest *request= [[SKProductsRequest alloc]
                                      initWithProductIdentifiers:
@@ -36,9 +36,11 @@
         switch (transaction.transactionState)
         {
             case SKPaymentTransactionStatePurchased:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"purchaseSucceeded" object:self];
                 NSLog(@"purchased");
                 break;
             case SKPaymentTransactionStateFailed:
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"purchaseFailed" object:self];
                 NSLog(@"failed");
                 break;
             case SKPaymentTransactionStateRestored:
@@ -60,6 +62,11 @@
 
 -(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
     NSLog(@"-(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {");
+    for (SKPaymentTransaction *transaction in [queue transactions]) {
+        if ([transaction.payment.productIdentifier isEqualToString:@"CHIMERA_IMAGEPACK_001"] && transaction.transactionState == SKPaymentTransactionStatePurchased) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"purchaseSucceeded" object:self];
+        }
+    }
 }
 
 -(void)paymentQueue:(SKPaymentQueue *)queue removedTransactions:(NSArray *)transactions {
@@ -74,6 +81,7 @@
     SKProduct *selectedProduct = [self.products objectAtIndex:0];
     SKPayment *payment = [SKPayment paymentWithProduct:selectedProduct];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
 @end

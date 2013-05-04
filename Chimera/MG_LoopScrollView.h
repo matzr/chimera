@@ -18,9 +18,7 @@
 
 @interface MG_LoopScrollView : UIScrollView<UIScrollViewDelegate> {
     NSMutableArray * _slideImages;
-    NSMutableArray * _slideImages_blurred;
     NSMutableArray * _slideImageViews;
-    NSMutableArray * _slideImageViews_blurred;
     CGSize _picturesSize;
     CGPoint _picturesOffset;
     int _currentIndex;

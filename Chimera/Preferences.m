@@ -17,6 +17,7 @@ NSString * kShakeForRandom = @"ShakeForRandom";
 NSString * kExtraAnimals = @"ExtraAnimals";
 NSString * kBackgroundSounds = @"BackgroundSounds";
 NSString * kSoundEffects = @"SoundEffects";
+NSString * kHasPurchasedPack1 = @"HasPurchasedPack1";
 
 -(id)init {
     self = [super init];
@@ -49,6 +50,12 @@ NSString * kSoundEffects = @"SoundEffects";
     return [self boolForKey:kShakeForRandom withDefault:YES];
 }
 
+
+-(BOOL)hasPurchasedPack1 {
+    return [self boolForKey:kHasPurchasedPack1 withDefault:NO];
+}
+
+
 -(BOOL)boolForKey:(NSString *)key withDefault:(BOOL)defaultValue{
     id value = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (value) {
@@ -79,4 +86,7 @@ NSString * kSoundEffects = @"SoundEffects";
     [self setValue:@(shakeForRandom) forKey:kShakeForRandom];
 }
 
+-(void)setHasPurchasedPack1:(BOOL)hasPurchasedPack1 {
+    [self setValue:@(hasPurchasedPack1) forKey:kHasPurchasedPack1];
+}
 @end

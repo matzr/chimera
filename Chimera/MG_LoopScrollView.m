@@ -14,7 +14,6 @@
 }
 
 @property (nonatomic, strong) UIView* normalImagesContainer;
-@property (nonatomic, strong) UIView* blurredImagesContainer;
 @property (nonatomic, strong) NSMutableArray *shuffledIndexes;
 
 
@@ -27,8 +26,6 @@ enum ScrollDirection {
 -(void)rearrangeContent;
 -(int)getArrayIndexForPositionIndex:(int)positionIndex;
 -(int)numberOfPicturesBefore;
--(void)blur;
--(void)unblur;
 -(void)recursiveScrollWithDirection:(enum ScrollDirection)direction timeLeft:(NSTimeInterval)timeLeft posLeft:(int)posLeft;
 
 @end
@@ -36,22 +33,15 @@ enum ScrollDirection {
 @implementation MG_LoopScrollView
 
 @synthesize normalImagesContainer;
-@synthesize blurredImagesContainer;
 @synthesize mgdelegate;
 
 -(void)reset {
     _slideImages = [NSMutableArray array];
-    _slideImages_blurred = [NSMutableArray array];
     _slideImageViews = [NSMutableArray array];
-    _slideImageViews_blurred = [NSMutableArray array];
     for (UIView *view in self.normalImagesContainer.subviews) {
         [view removeFromSuperview];
     }
-    for (UIView *view in self.blurredImagesContainer.subviews) {
-        [view removeFromSuperview];
-    }
     self.normalImagesContainer.alpha = 1;
-    self.blurredImagesContainer.alpha = 0;
     _currentStartIndex = 0;
     _currentOffset = 0;
     _currentIndex = 0;
@@ -59,9 +49,7 @@ enum ScrollDirection {
 
 -(void)internalInit {
     self.normalImagesContainer = [[UIView alloc]init];
-    self.blurredImagesContainer = [[UIView alloc]init];
     [self addSubview:self.normalImagesContainer];
-    [self addSubview:self.blurredImagesContainer];
     _tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapScrollView:)];
     [self addGestureRecognizer:_tapGestureRecognizer];
     self.delegate = self;
@@ -86,23 +74,6 @@ enum ScrollDirection {
     return self;
 }
 
--(void)blur {
-    [UIView animateWithDuration:.1 animations:^{
-        self.normalImagesContainer.alpha = 0.0;
-    }];
-    [UIView animateWithDuration:.05 animations:^{
-        self.blurredImagesContainer.alpha = 1.0;
-    }];
-}
-
--(void)unblur {
-    [UIView animateWithDuration:.05 animations:^{
-        self.normalImagesContainer.alpha = 1.0;
-    }];
-    [UIView animateWithDuration:.1 animations:^{
-        self.blurredImagesContainer.alpha = 0.0;
-    }];
-}
 
 -(void)checkPosition {
     if (!(self.contentOffset.x)) {
@@ -155,26 +126,17 @@ enum ScrollDirection {
     CGRect frame = CGRectMake(0, 0, totalContentWidth, height);
     self.contentSize = CGSizeMake(totalContentWidth, height);
     self.normalImagesContainer.frame = frame;
-    self.blurredImagesContainer.frame = frame;
 
     [_slideImageViews removeAllObjects];
-    [_slideImageViews_blurred removeAllObjects];
     
     for (int i = [self.normalImagesContainer.subviews count] - 1; i >= 0; i -= 1) {
         [((UIView*)([self.normalImagesContainer.subviews objectAtIndex:i])) removeFromSuperview];
-    }
-    
-    for (int i = [self.blurredImagesContainer.subviews count] - 1; i >= 0; i -= 1) {
-        [((UIView*)([self.blurredImagesContainer.subviews objectAtIndex:i])) removeFromSuperview];
     }
     
     for (int i = 0; i < [_slideImages count]; i += 1) {
         imageView = [[UIImageView alloc] initWithImage:[MG_LoopScrollView imageWithImage:[_slideImages objectAtIndex:[self getArrayIndexForPositionIndex:i-[self numberOfPicturesBefore]]] scaledToSize:_picturesSize]];
         [self.normalImagesContainer addSubview:imageView];
         [_slideImageViews addObject:imageView];
-        imageView = [[UIImageView alloc] initWithImage:[MG_LoopScrollView imageWithImage:[_slideImages_blurred objectAtIndex:[self getArrayIndexForPositionIndex:i-[self numberOfPicturesBefore]]] scaledToSize:_picturesSize]];
-        [self.blurredImagesContainer addSubview:imageView];
-        [_slideImageViews_blurred addObject:imageView];
     }
     
     [self rearrangeContent];
@@ -182,26 +144,20 @@ enum ScrollDirection {
 
 -(void)loadPicturesWithPrefix:(NSString*)prefix {
     UIImage *image;
-    UIImage *image_blurred;
     NSString *filenameSuffix;
     NSString *filename;
-    NSString *filename_blurred;
     NSString *format = [NSString stringWithFormat:@"%%0%dd", 4];
     NSMutableArray *tempNormal = [NSMutableArray array];
-    NSMutableArray *tempBlurred = [NSMutableArray array];
     self.shuffledIndexes = [NSMutableArray array];
     _prefix = prefix;
     int i = 0;
     for (NSNumber *pictureIndex in self.pictureIndexes) {
         filenameSuffix = [NSString stringWithFormat:format, pictureIndex.intValue];
         filename = [NSString stringWithFormat:@"%@_%@", prefix, filenameSuffix];
-        filename_blurred = [NSString stringWithFormat:@"%@_blur_%@", prefix, filenameSuffix];
         image = [UIImage imageNamed:filename];
-        image_blurred = [UIImage imageNamed:filename_blurred];
-        if (image && image_blurred) {
+        if (image) {
             [self.shuffledIndexes addObject:[NSNumber numberWithInt:i++]];
             [_slideImages addObject:image];
-            [_slideImages_blurred addObject:image_blurred];
         }
     }
     [self.shuffledIndexes shuffle];
@@ -209,11 +165,9 @@ enum ScrollDirection {
     for (i = 0; i < [self.shuffledIndexes count]; i += 1) {
         int indexToPick = [self.shuffledIndexes[i] intValue];
         tempNormal[i] = _slideImages[indexToPick];
-        tempBlurred[i] = _slideImages[indexToPick];
     }
     
     _slideImages = tempNormal;
-    _slideImages_blurred = tempBlurred;
     [self initContent];
 }
 
@@ -252,7 +206,6 @@ enum ScrollDirection {
         [self rearrangeContent];
     }
     _currentOffset = self.contentOffset.x;
-    [self unblur];
     
     if (self.delegate) {
         [self.mgdelegate selectionChanged:self];
@@ -267,7 +220,6 @@ enum ScrollDirection {
         [self rearrangeContent];
     }
     _currentOffset = self.contentOffset.x;
-    [self unblur];
     
     if (self.delegate) {
         [self.mgdelegate selectionChanged:self];
@@ -311,8 +263,6 @@ enum ScrollDirection {
 }
 
 -(void)tapScrollView:(UIGestureRecognizer *)gestureRecognizer {
-    [self blur];
-    [self performSelector:@selector(unblur) withObject:nil afterDelay:.3];
     CGPoint touchLocation = [gestureRecognizer locationOfTouch:0 inView:self];
     if (touchLocation.x - self.contentOffset.x < self.frame.size.width / 2) {
         [self scrollLeft];
@@ -333,10 +283,6 @@ enum ScrollDirection {
         //Reposition normal image
         imageView.frame = frame;
 
-        //Reposition blurred image
-        imageView = [_slideImageViews_blurred objectAtIndex:[self getArrayIndexForPositionIndex:i-[self numberOfPicturesBefore]]];
-        imageView.frame = frame;
-
         currentX += imageView.frame.size.width;
     }
 
@@ -352,13 +298,12 @@ enum ScrollDirection {
     if (self.isAutoSpinning) {
         return;
     }
+    self.userInteractionEnabled = NO;
     self.isAutoSpinning = YES;
-    //enum ScrollDirection scrollDir = (arc4random_uniform(2))?kRight:kLeft;
-    enum ScrollDirection scrollDir = kRight;
+    enum ScrollDirection scrollDir = (arc4random_uniform(2))?kRight:kLeft;
     usleep(1000);
     int numberOfPosToScroll = 10 + arc4random_uniform(16);
     NSLog(@"%@ will spin to the %@ for %d position(s)", self.name, (scrollDir == kLeft)?@"left":@"right", numberOfPosToScroll);
-    //TODO
     NSString *format = [NSString stringWithFormat:@"%%0%dd", 4];
     int totalWidth = numberOfPosToScroll * _picturesSize.width;
     int x = (scrollDir == kRight) ? 0 : -((numberOfPosToScroll - 1) * _picturesSize.width);
@@ -368,11 +313,11 @@ enum ScrollDirection {
     int suffix;
     NSString *filename;
     UIImage *image;
-    suffix = [self currentAnimalId] + 1;
+    suffix = ([self currentAnimalId] + 1);
     filename = [NSString stringWithFormat:@"%@_%@", _prefix, [NSString stringWithFormat:format, suffix]];
     image = [UIImage imageNamed:filename];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.frame = CGRectMake(0, _picturesOffset.y, _picturesSize.width, _picturesSize.height);
+    imageView.frame = CGRectMake((scrollDir == kRight)?0:(numberOfPosToScroll - 1) * _picturesSize.width, _picturesOffset.y, _picturesSize.width, _picturesSize.height);
     [overlay addSubview:imageView];
     
     for (int i = 1; i < numberOfPosToScroll - 2; i++) {
@@ -385,18 +330,15 @@ enum ScrollDirection {
     }
     [self addSubview:overlay];
     
-    suffix = kRight ? [self nextAnimalId] : [self previousAnimalId];
+    suffix = (scrollDir == kRight) ? [self nextAnimalId]: [self previousAnimalId];
     suffix += 1;
     filename = [NSString stringWithFormat:@"%@_%@", _prefix, [NSString stringWithFormat:format, suffix]];
     image = [UIImage imageNamed:filename];
     imageView = [[UIImageView alloc] initWithImage:image];
-    imageView.frame = CGRectMake((numberOfPosToScroll - 1) * _picturesSize.width, _picturesOffset.y, _picturesSize.width, _picturesSize.height);
+    imageView.frame = CGRectMake((scrollDir == kRight)?(numberOfPosToScroll - 1) * _picturesSize.width:0, _picturesOffset.y, _picturesSize.width, _picturesSize.height);
     [overlay addSubview:imageView];
 
-    
-    // 4b. match the last element
     self.normalImagesContainer.hidden = YES;
-    self.blurredImagesContainer.hidden = YES;
     
     [UIView animateWithDuration:5 animations:^{
         CGRect frame = overlay.frame;
@@ -410,9 +352,10 @@ enum ScrollDirection {
         } else {
             [self moveLeft];
         }
+        self.userInteractionEnabled = YES;
         self.normalImagesContainer.hidden = NO;
-        self.blurredImagesContainer.hidden = NO;
         self.isAutoSpinning = NO;
+        [self.mgdelegate selectionChanged:self];
     }];
 }
 

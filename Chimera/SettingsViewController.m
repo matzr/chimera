@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "PaymentProcessor.h"
 #import "Preferences.h"
+#import "PurchaseScreenViewController.h"
 
 @interface SettingsViewController () {
 }
@@ -39,8 +40,25 @@
 }
 
 - (IBAction)useExtraAnimalsChanged:(id)sender {
-    [Preferences instance].extraAnimalsEnabled = self.useExtraAnimalsSwitch.on;
-    [[AppDelegate instance].tracker trackEventWithCategory:@"UserAction" withAction:@"Settings" withLabel:@"extraAnimals" withValue:@(self.useExtraAnimalsSwitch.on)];
+    if (![Preferences instance].hasPurchasedPack1)  {
+        //TODO: check the AppStore to see if the user is entitled
+        [Preferences instance].extraAnimalsEnabled = NO;
+        
+        if (self.useExtraAnimalsSwitch.on) {
+            [[AppDelegate instance].paymentProcessor requestProductDetails];
+            if ((![AppDelegate instance].paymentProcessor.products) || ([[AppDelegate instance].paymentProcessor.products count] == 0)) {
+                self.useExtraAnimalsSwitch.on = NO;
+                [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Cannot access the AppStore. Please try again later" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                return;
+            }
+        }
+        self.useExtraAnimalsSwitch.on = NO;
+        PurchaseScreenViewController *settingsVc = [self.storyboard instantiateViewControllerWithIdentifier:@"PurchaseScreen"];
+        [self presentViewController:settingsVc animated:YES completion:nil];
+    } else {
+        [Preferences instance].extraAnimalsEnabled = self.useExtraAnimalsSwitch.on;
+        [[AppDelegate instance].tracker trackEventWithCategory:@"UserAction" withAction:@"Settings" withLabel:@"extraAnimals" withValue:@(self.useExtraAnimalsSwitch.on)];
+    }
 }
 
 - (void)didReceiveMemoryWarning

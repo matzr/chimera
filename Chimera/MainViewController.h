@@ -9,7 +9,7 @@
 #import "FlipsideViewController.h"
 #import "MG_LoopScrollView.h"
 
-@interface MainViewController : UIViewController <FlipsideViewControllerDelegate, UIPopoverControllerDelegate, MG_LoopScrollViewDelegate>
+@interface MainViewController : UIViewController <UIPopoverControllerDelegate, MG_LoopScrollViewDelegate>
 
 @property (strong, nonatomic) UIPopoverController *flipsidePopoverController;
 
@@ -19,6 +19,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *doubleTapToGoLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *successAnimationImageView;
+@property (weak, nonatomic) IBOutlet UIView *activityView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *settingsTapGestureRecognizer;
 - (IBAction)doubleTap:(id)sender;
 - (IBAction)singleTapSettings:(id)sender;

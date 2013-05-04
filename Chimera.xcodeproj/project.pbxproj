@@ -70,6 +70,7 @@
 		4E898C3E15FA989D000E9677 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C3D15FA989D000E9677 /* MainViewController.m */; };
 		4E898C4115FA989D000E9677 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C4015FA989D000E9677 /* FlipsideViewController.m */; };
 		4E9A3E3216253484003A4DB5 /* NSMutableArray+Shuffable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */; };
+		4EAD08401734E26500DE5EBE /* PurchaseScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAD083F1734E26500DE5EBE /* PurchaseScreenViewController.m */; };
 		4ED158A3172E863000801970 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED1589F172E863000801970 /* libTestFlight.a */; };
 		4ED158A4172E863000801970 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4ED158A0172E863000801970 /* README.md */; };
 		4ED158A5172E863000801970 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 4ED158A1172E863000801970 /* release_notes.md */; };
@@ -89,6 +90,8 @@
 		4ED24C37173399EB0024AE01 /* part_head_blur_0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C31173399EB0024AE01 /* part_head_blur_0007.png */; };
 		4ED24C38173399EB0024AE01 /* part_head_blur_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C32173399EB0024AE01 /* part_head_blur_0008.png */; };
 		4ED24C3A1733A24C0024AE01 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C391733A24C0024AE01 /* button.png */; };
+		4ED24C3C173493280024AE01 /* button-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C3B173493280024AE01 /* button-pressed.png */; };
+		4ED24C3E173493690024AE01 /* animals-group.png in Resources */ = {isa = PBXBuildFile; fileRef = 4ED24C3D173493690024AE01 /* animals-group.png */; };
 		4EE01320172F396200934896 /* cheering.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4EE0131F172F396200934896 /* cheering.mp3 */; };
 		4EE0132D17306C9900934896 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE0132C17306C9900934896 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4EE0133017306CDF00934896 /* PaymentProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE0132F17306CDF00934896 /* PaymentProcessor.m */; };
@@ -211,6 +214,8 @@
 		4E898C4015FA989D000E9677 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 		4E9A3E3016253484003A4DB5 /* NSMutableArray+Shuffable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffable.h"; sourceTree = "<group>"; };
 		4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffable.m"; sourceTree = "<group>"; };
+		4EAD083E1734E26500DE5EBE /* PurchaseScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseScreenViewController.h; sourceTree = "<group>"; };
+		4EAD083F1734E26500DE5EBE /* PurchaseScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseScreenViewController.m; sourceTree = "<group>"; };
 		4ED1589F172E863000801970 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
 		4ED158A0172E863000801970 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4ED158A1172E863000801970 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
@@ -237,6 +242,8 @@
 		4ED24C31173399EB0024AE01 /* part_head_blur_0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_head_blur_0007.png; sourceTree = "<group>"; };
 		4ED24C32173399EB0024AE01 /* part_head_blur_0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = part_head_blur_0008.png; sourceTree = "<group>"; };
 		4ED24C391733A24C0024AE01 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
+		4ED24C3B173493280024AE01 /* button-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-pressed.png"; sourceTree = "<group>"; };
+		4ED24C3D173493690024AE01 /* animals-group.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "animals-group.png"; sourceTree = "<group>"; };
 		4EE0131F172F396200934896 /* cheering.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = cheering.mp3; sourceTree = "<group>"; };
 		4EE0132C17306C9900934896 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4EE0132E17306CDF00934896 /* PaymentProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentProcessor.h; sourceTree = "<group>"; };
@@ -438,6 +445,8 @@
 				4E898C2B15FA989D000E9677 /* Supporting Files */,
 				4ED24C2A1733397F0024AE01 /* Preferences.h */,
 				4ED24C2B1733397F0024AE01 /* Preferences.m */,
+				4EAD083E1734E26500DE5EBE /* PurchaseScreenViewController.h */,
+				4EAD083F1734E26500DE5EBE /* PurchaseScreenViewController.m */,
 			);
 			path = Chimera;
 			sourceTree = "<group>";
@@ -445,6 +454,8 @@
 		4E898C2B15FA989D000E9677 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4ED24C3B173493280024AE01 /* button-pressed.png */,
+				4ED24C3D173493690024AE01 /* animals-group.png */,
 				4ED24C391733A24C0024AE01 /* button.png */,
 				4ED24C19173325290024AE01 /* switch_off.png */,
 				4ED24C1A173325290024AE01 /* switch_on.png */,
@@ -968,6 +979,8 @@
 				4ED24C37173399EB0024AE01 /* part_head_blur_0007.png in Resources */,
 				4ED24C38173399EB0024AE01 /* part_head_blur_0008.png in Resources */,
 				4ED24C3A1733A24C0024AE01 /* button.png in Resources */,
+				4ED24C3C173493280024AE01 /* button-pressed.png in Resources */,
+				4ED24C3E173493690024AE01 /* animals-group.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1004,6 +1017,7 @@
 				4EF43697173217860002E01E /* Appirater.m in Sources */,
 				4EF436D5173274BC0002E01E /* SettingsViewController.m in Sources */,
 				4ED24C2C1733397F0024AE01 /* Preferences.m in Sources */,
+				4EAD08401734E26500DE5EBE /* PurchaseScreenViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
