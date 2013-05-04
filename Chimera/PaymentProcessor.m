@@ -37,6 +37,7 @@
         {
             case SKPaymentTransactionStatePurchased:
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"purchaseSucceeded" object:self];
+                [[AppDelegate instance].tracker trackEventWithCategory:@"Purchase" withAction:@"newPurchase" withLabel:nil withValue:nil];
                 NSLog(@"purchased");
                 break;
             case SKPaymentTransactionStateFailed:
@@ -64,6 +65,7 @@
     NSLog(@"-(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {");
     for (SKPaymentTransaction *transaction in [queue transactions]) {
         if ([transaction.payment.productIdentifier isEqualToString:@"CHIMERA_IMAGEPACK_001"] && transaction.transactionState == SKPaymentTransactionStatePurchased) {
+            [[AppDelegate instance].tracker trackEventWithCategory:@"Purchase" withAction:@"restoredPurchase" withLabel:nil withValue:nil];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"purchaseSucceeded" object:self];
         }
     }
