@@ -58,7 +58,7 @@ static AppDelegate *_instance;
     [Appirater setSignificantEventsUntilPrompt:-1];
     [Appirater setTimeBeforeReminding:2];
     [Appirater appLaunched:YES];
-    
+
 //    [GAI sharedInstance].debug = YES;
 //    [GAI sharedInstance].optOut = NO;
 //    [GAI sharedInstance].dispatchInterval = 5;

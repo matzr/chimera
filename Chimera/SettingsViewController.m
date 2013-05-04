@@ -40,7 +40,7 @@
 
 - (IBAction)useExtraAnimalsChanged:(id)sender {
     [Preferences instance].extraAnimalsEnabled = self.useExtraAnimalsSwitch.on;
-
+    [[AppDelegate instance].tracker trackEventWithCategory:@"UserAction" withAction:@"Settings" withLabel:@"extraAnimals" withValue:@(self.useExtraAnimalsSwitch.on)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,14 +61,17 @@
 }
 - (IBAction)shakeForRandomChange:(id)sender {
     [Preferences instance].shakeForRandom = self.shakeForRandomSwitch.on;
+    [[AppDelegate instance].tracker trackEventWithCategory:@"UserAction" withAction:@"Settings" withLabel:@"shakeForRandom" withValue:@(self.shakeForRandomSwitch.on)];
 }
 
 - (IBAction)soundFxChange:(id)sender {
     [Preferences instance].soundEffectsEnabled = self.soundEffectsSwitch.on;
+    [[AppDelegate instance].tracker trackEventWithCategory:@"UserAction" withAction:@"Settings" withLabel:@"soundFx" withValue:@(self.soundEffectsSwitch.on)];
 }
 
 - (IBAction)backgroundSoundsChange:(id)sender {
     [Preferences instance].backgroundSoundsEnabled = self.backgroundsSoundsSwitch.on;
+    [[AppDelegate instance].tracker trackEventWithCategory:@"UserAction" withAction:@"Settings" withLabel:@"backgroundSounds" withValue:@(self.backgroundsSoundsSwitch.on)];
     if (self.backgroundsSoundsSwitch.on) {
         [[AppDelegate instance] startBackgroundSound];
     } else {
