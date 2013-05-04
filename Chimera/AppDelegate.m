@@ -62,12 +62,12 @@ static AppDelegate *_instance;
     [self.paymentProcessor requestProductDetails];
 
 
-//    [GAI sharedInstance].debug = YES;
-//    [GAI sharedInstance].optOut = NO;
-//    [GAI sharedInstance].dispatchInterval = 5;
-//    [GAI sharedInstance].trackUncaughtExceptions = YES;
-//    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-40622546-1"];
-//    [self.tracker setSessionStart:YES];
+    [GAI sharedInstance].debug = NO;
+    [GAI sharedInstance].optOut = NO;
+    [GAI sharedInstance].dispatchInterval = 5;
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    self.tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-40622546-1"];
+    [self.tracker setSessionStart:YES];
 
     return YES;
 }
