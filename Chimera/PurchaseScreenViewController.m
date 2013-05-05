@@ -38,6 +38,7 @@
     [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [formatter setLocale:[pack1 priceLocale]];
     NSString *price = [formatter stringFromNumber:[pack1 price]];
+    [[AppDelegate instance].tracker trackView:@"Purchase"];
     self.purchaseMessageLabel.text = [self.purchaseMessageLabel.text stringByReplacingOccurrencesOfString:@"..." withString:price];
 }
 

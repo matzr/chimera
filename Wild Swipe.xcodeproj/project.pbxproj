@@ -102,32 +102,7 @@
 		4EE0133A1730BD3D00934896 /* ligne.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE013391730BD3D00934896 /* ligne.png */; };
 		4EF43697173217860002E01E /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF43648173217850002E01E /* Appirater.m */; };
 		4EF43698173217860002E01E /* Appirater.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43649173217850002E01E /* Appirater.podspec */; };
-		4EF43699173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4364C173217850002E01E /* AppiraterLocalizable.strings */; };
-		4EF4369A173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4364F173217850002E01E /* AppiraterLocalizable.strings */; };
-		4EF4369B173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43652173217850002E01E /* AppiraterLocalizable.strings */; };
-		4EF4369C173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43655173217850002E01E /* AppiraterLocalizable.strings */; };
-		4EF4369D173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43658173217850002E01E /* AppiraterLocalizable.strings */; };
 		4EF4369E173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4365B173217850002E01E /* AppiraterLocalizable.strings */; };
-		4EF4369F173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4365E173217850002E01E /* AppiraterLocalizable.strings */; };
-		4EF436A0173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43661173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436A1173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43664173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436A2173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43667173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436A3173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4366A173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436A4173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4366D173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436A5173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43670173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436A6173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43673173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436A7173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43676173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436A8173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43679173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436A9173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4367C173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436AA173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4367F173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436AB173217860002E01E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43681173217860002E01E /* README.md */; };
-		4EF436AC173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43683173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436AD173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43686173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436AE173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43689173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436AF173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4368C173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436B0173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF4368F173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436B1173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43692173217860002E01E /* AppiraterLocalizable.strings */; };
-		4EF436B2173217860002E01E /* AppiraterLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4EF43695173217860002E01E /* AppiraterLocalizable.strings */; };
 		4EF436B417321BEF0002E01E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF436B317321BEF0002E01E /* CFNetwork.framework */; };
 		4EF436B617321C600002E01E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF436B517321C600002E01E /* SystemConfiguration.framework */; };
 		4EF436BD173249D40002E01E /* part_body_0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EF436B7173249D40002E01E /* part_body_0008.png */; };
@@ -826,7 +801,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = LesBandits.com;
 			};
-			buildConfigurationList = 4E898C1A15FA989D000E9677 /* Build configuration list for PBXProject "Chimera" */;
+			buildConfigurationList = 4E898C1A15FA989D000E9677 /* Build configuration list for PBXProject "Wild Swipe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -933,32 +908,7 @@
 				4EE013381730BCDA00934896 /* ideo_60x60_white_0002.png in Resources */,
 				4EE0133A1730BD3D00934896 /* ligne.png in Resources */,
 				4EF43698173217860002E01E /* Appirater.podspec in Resources */,
-				4EF43699173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF4369A173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF4369B173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF4369C173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF4369D173217860002E01E /* AppiraterLocalizable.strings in Resources */,
 				4EF4369E173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF4369F173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436A0173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436A1173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436A2173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436A3173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436A4173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436A5173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436A6173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436A7173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436A8173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436A9173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436AA173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436AB173217860002E01E /* README.md in Resources */,
-				4EF436AC173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436AD173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436AE173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436AF173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436B0173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436B1173217860002E01E /* AppiraterLocalizable.strings in Resources */,
-				4EF436B2173217860002E01E /* AppiraterLocalizable.strings in Resources */,
 				4EF436BD173249D40002E01E /* part_body_0008.png in Resources */,
 				4EF436BE173249D40002E01E /* part_body_0007.png in Resources */,
 				4EF436BF173249D40002E01E /* part_head_0007.png in Resources */,
@@ -1320,6 +1270,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chimera/Chimera-Prefix.pch";
 				INFOPLIST_FILE = "Chimera/Chimera-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1344,13 +1295,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Chimera/Chimera-Prefix.pch";
 				INFOPLIST_FILE = "Chimera/Chimera-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "766BEFFC-2D5D-428E-9A38-2D186A87BB78";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "766BEFFC-2D5D-428E-9A38-2D186A87BB78";
+				PROVISIONING_PROFILE = "EFDCA37F-2560-4F88-A862-A00A40D66DC7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EFDCA37F-2560-4F88-A862-A00A40D66DC7";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1359,7 +1311,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4E898C1A15FA989D000E9677 /* Build configuration list for PBXProject "Chimera" */ = {
+		4E898C1A15FA989D000E9677 /* Build configuration list for PBXProject "Wild Swipe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E898C4215FA989D000E9677 /* Debug */,

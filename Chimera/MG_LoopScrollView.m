@@ -26,7 +26,6 @@ enum ScrollDirection {
 -(void)rearrangeContent;
 -(int)getArrayIndexForPositionIndex:(int)positionIndex;
 -(int)numberOfPicturesBefore;
--(void)recursiveScrollWithDirection:(enum ScrollDirection)direction timeLeft:(NSTimeInterval)timeLeft posLeft:(int)posLeft;
 
 @end
 
