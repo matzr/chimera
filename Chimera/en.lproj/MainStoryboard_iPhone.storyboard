@@ -34,15 +34,12 @@
                             </imageView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" id="hF9-il-2n5" customClass="MG_LoopScrollView">
                                 <rect key="frame" x="0.0" y="307" width="320" height="153"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
                             </scrollView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" id="bZt-2U-6Rz" customClass="MG_LoopScrollView">
                                 <rect key="frame" x="0.0" y="154" width="320" height="153"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
                             </scrollView>
                             <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" id="pYo-WY-yTm" customClass="MG_LoopScrollView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="153"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" heightSizable="YES"/>
                             </scrollView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" text="double-tap to go..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Upt-ph-Amn">
                                 <rect key="frame" x="40" y="430" width="147" height="21"/>
@@ -84,11 +81,13 @@
                     </view>
                     <connections>
                         <outlet property="activityView" destination="JCL-CA-7bP" id="rKk-2b-na6"/>
+                        <outlet property="bottomLine" destination="600-ZQ-up9" id="unM-zO-xhX"/>
                         <outlet property="bottomLoopScrollView" destination="hF9-il-2n5" id="Jkb-7H-z0G"/>
                         <outlet property="doubleTapToGoLabel" destination="Upt-ph-Amn" id="Itm-VK-roh"/>
                         <outlet property="middleLoopScrollView" destination="bZt-2U-6Rz" id="tvq-vd-GxC"/>
                         <outlet property="settingsTapGestureRecognizer" destination="zRF-Zo-eEM" id="05k-bf-Lan"/>
                         <outlet property="successAnimationImageView" destination="ucP-ZG-wGW" id="yxh-x3-B3f"/>
+                        <outlet property="topLine" destination="cpl-UG-Y0s" id="fiz-Ml-ud3"/>
                         <outlet property="topLoopScrollView" destination="pYo-WY-yTm" id="i4c-IL-fXu"/>
                         <outlet property="view" destination="3" id="6g4-iW-e0R"/>
                     </connections>
@@ -338,11 +337,13 @@
                 <relationship kind="action" name="doubleTap:"/>
                 <relationship kind="action" name="singleTapSettings:"/>
                 <relationship kind="outlet" name="activityView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="bottomLine" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="bottomLoopScrollView" candidateClass="MG_LoopScrollView"/>
                 <relationship kind="outlet" name="doubleTapToGoLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="middleLoopScrollView" candidateClass="MG_LoopScrollView"/>
                 <relationship kind="outlet" name="settingsTapGestureRecognizer" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="successAnimationImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="topLine" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="topLoopScrollView" candidateClass="MG_LoopScrollView"/>
             </relationships>
         </class>

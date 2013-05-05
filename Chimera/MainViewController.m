@@ -43,7 +43,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    
+    [self positionElements];
     [super viewWillAppear:animated];
     self.activityView.hidden = NO;
 }
@@ -119,12 +119,21 @@
     self.successAnimationImageView.hidden = NO;
     [self.successAnimationImageView startAnimating];
     [self performSelector:@selector(hideSuccessAnimation) withObject:nil afterDelay:4];
+    [UIView animateWithDuration:.5 animations:^{
+        CGAffineTransform tr = CGAffineTransformScale(self.view.transform, 1.3, 1.3);
+        CGAffineTransform transformHead = CGAffineTransformMakeRotation(M_PI_2 / 4);
+        self.topLoopScrollView.transform = CGAffineTransformConcat(tr, transformHead);
+    }];
+    
     [UIView animateWithDuration:4 animations:^{
-        CGAffineTransform transform = CGAffineTransformMakeRotation(M_PI_2 / 2);
-        self.successAnimationImageView.transform = transform;
+        CGAffineTransform transformSuccessAnim = CGAffineTransformMakeRotation(M_PI_2 / 2);
+        self.successAnimationImageView.transform = transformSuccessAnim;
     } completion:^(BOOL finished) {
-        CGAffineTransform transform = CGAffineTransformMakeRotation(0);
-        self.successAnimationImageView.transform = transform;
+        [UIView animateWithDuration:.3 animations:^{
+            CGAffineTransform transform = CGAffineTransformMakeRotation(0);
+            self.successAnimationImageView.transform = transform;
+            self.topLoopScrollView.transform = transform;
+        }];
     }];
     [self performSelector:@selector(enableUserInteraction) withObject:nil afterDelay:4];
 }
@@ -142,6 +151,8 @@
 }
 
 - (void)viewDidUnload {
+    [self setBottomLine:nil];
+    [self setTopLine:nil];
     [self setActivityView:nil];
     [self setDoubleTapToGoLabel:nil];
     [self setSettingsTapGestureRecognizer:nil];
@@ -194,4 +205,26 @@
     self.middleLoopScrollView.userInteractionEnabled = activate;
     self.bottomLoopScrollView.userInteractionEnabled = activate;
 }
+
+-(void)positionElements {
+    CGFloat y1, y2;
+    CGRect frame = self.topLoopScrollView.frame;
+    frame.origin.y = (self.view.frame.size.height - (153 *3)) / 2;
+    self.topLoopScrollView.frame = frame;
+    frame.origin.y += 153;
+    y1 = frame.origin.y;
+    self.middleLoopScrollView.frame = frame;
+    frame.origin.y += 153;
+    y2 = frame.origin.y;
+    self.bottomLoopScrollView.frame = frame;
+    
+    frame = self.topLine.frame;
+    frame.origin.y = y1;
+    self.topLine.frame = frame;
+    
+    frame = self.bottomLine.frame;
+    frame.origin.y = y2 - 	20;
+    self.bottomLine.frame = frame;
+}
+
 @end

@@ -425,28 +425,28 @@
 		4E898C2A15FA989D000E9677 /* Chimera */ = {
 			isa = PBXGroup;
 			children = (
-				4EE013491732165400934896 /* AppiRater */,
 				4E898C3315FA989D000E9677 /* AppDelegate.h */,
 				4E898C3415FA989D000E9677 /* AppDelegate.m */,
-				4E898C3615FA989D000E9677 /* MainStoryboard_iPhone.storyboard */,
-				4E898C3915FA989D000E9677 /* MainStoryboard_iPad.storyboard */,
-				4E898C3C15FA989D000E9677 /* MainViewController.h */,
-				4E898C3D15FA989D000E9677 /* MainViewController.m */,
+				4EE013491732165400934896 /* AppiRater */,
 				4E898C3F15FA989D000E9677 /* FlipsideViewController.h */,
 				4E898C4015FA989D000E9677 /* FlipsideViewController.m */,
+				4E898C3915FA989D000E9677 /* MainStoryboard_iPad.storyboard */,
+				4E898C3615FA989D000E9677 /* MainStoryboard_iPhone.storyboard */,
+				4E898C3C15FA989D000E9677 /* MainViewController.h */,
+				4E898C3D15FA989D000E9677 /* MainViewController.m */,
 				4E2128FF16151440003290E9 /* MG_LoopScrollView.h */,
 				4E21290016151440003290E9 /* MG_LoopScrollView.m */,
 				4E9A3E3016253484003A4DB5 /* NSMutableArray+Shuffable.h */,
 				4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */,
 				4EE0132E17306CDF00934896 /* PaymentProcessor.h */,
 				4EE0132F17306CDF00934896 /* PaymentProcessor.m */,
-				4EF436D3173274BC0002E01E /* SettingsViewController.h */,
-				4EF436D4173274BC0002E01E /* SettingsViewController.m */,
-				4E898C2B15FA989D000E9677 /* Supporting Files */,
 				4ED24C2A1733397F0024AE01 /* Preferences.h */,
 				4ED24C2B1733397F0024AE01 /* Preferences.m */,
 				4EAD083E1734E26500DE5EBE /* PurchaseScreenViewController.h */,
 				4EAD083F1734E26500DE5EBE /* PurchaseScreenViewController.m */,
+				4EF436D3173274BC0002E01E /* SettingsViewController.h */,
+				4EF436D4173274BC0002E01E /* SettingsViewController.m */,
+				4E898C2B15FA989D000E9677 /* Supporting Files */,
 			);
 			path = Chimera;
 			sourceTree = "<group>";

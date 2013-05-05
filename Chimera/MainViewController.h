@@ -21,6 +21,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *successAnimationImageView;
 @property (weak, nonatomic) IBOutlet UIView *activityView;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *settingsTapGestureRecognizer;
+@property (weak, nonatomic) IBOutlet UIImageView *topLine;
+@property (weak, nonatomic) IBOutlet UIImageView *bottomLine;
 - (IBAction)doubleTap:(id)sender;
 - (IBAction)singleTapSettings:(id)sender;
 
