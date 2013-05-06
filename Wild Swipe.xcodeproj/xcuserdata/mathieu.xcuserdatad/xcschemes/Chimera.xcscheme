@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4E898C1F15FA989D000E9677"
                BuildableName = "Chimera.app"
-               BlueprintName = "Chimera"
+               BlueprintName = "Wild Swipe"
                ReferencedContainer = "container:Wild Swipe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,7 +34,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4E898C1F15FA989D000E9677"
             BuildableName = "Chimera.app"
-            BlueprintName = "Chimera"
+            BlueprintName = "Wild Swipe"
             ReferencedContainer = "container:Wild Swipe.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -53,7 +53,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4E898C1F15FA989D000E9677"
             BuildableName = "Chimera.app"
-            BlueprintName = "Chimera"
+            BlueprintName = "Wild Swipe"
             ReferencedContainer = "container:Wild Swipe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -71,7 +71,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4E898C1F15FA989D000E9677"
             BuildableName = "Chimera.app"
-            BlueprintName = "Chimera"
+            BlueprintName = "Wild Swipe"
             ReferencedContainer = "container:Wild Swipe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

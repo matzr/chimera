@@ -70,6 +70,11 @@
 		4E898C3E15FA989D000E9677 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C3D15FA989D000E9677 /* MainViewController.m */; };
 		4E898C4115FA989D000E9677 /* FlipsideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E898C4015FA989D000E9677 /* FlipsideViewController.m */; };
 		4E9A3E3216253484003A4DB5 /* NSMutableArray+Shuffable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */; };
+		4EA3605617386FEC00AF9503 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA3605517386FEC00AF9503 /* Default@2x.png */; };
+		4EA36058173870A500AF9503 /* small icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA36057173870A500AF9503 /* small icon.png */; };
+		4EA3605A173870A700AF9503 /* large icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA36059173870A700AF9503 /* large icon.png */; };
+		4EA3605D1738713500AF9503 /* logo_chimera.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA3605B1738713500AF9503 /* logo_chimera.png */; };
+		4EA3605E1738713500AF9503 /* logo_wildswipe-130x100.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EA3605C1738713500AF9503 /* logo_wildswipe-130x100.png */; };
 		4EAD08401734E26500DE5EBE /* PurchaseScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAD083F1734E26500DE5EBE /* PurchaseScreenViewController.m */; };
 		4ED158A3172E863000801970 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED1589F172E863000801970 /* libTestFlight.a */; };
 		4ED158A4172E863000801970 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4ED158A0172E863000801970 /* README.md */; };
@@ -97,7 +102,6 @@
 		4EE0133017306CDF00934896 /* PaymentProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE0132F17306CDF00934896 /* PaymentProcessor.m */; };
 		4EE013331730BA6700934896 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE013311730BA6700934896 /* settings@2x.png */; };
 		4EE013341730BA6700934896 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE013321730BA6700934896 /* settings.png */; };
-		4EE013361730BC5800934896 /* logo_chimera.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE013351730BC5800934896 /* logo_chimera.png */; };
 		4EE013381730BCDA00934896 /* ideo_60x60_white_0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE013371730BCDA00934896 /* ideo_60x60_white_0002.png */; };
 		4EE0133A1730BD3D00934896 /* ligne.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EE013391730BD3D00934896 /* ligne.png */; };
 		4EF43697173217860002E01E /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF43648173217850002E01E /* Appirater.m */; };
@@ -189,6 +193,11 @@
 		4E898C4015FA989D000E9677 /* FlipsideViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlipsideViewController.m; sourceTree = "<group>"; };
 		4E9A3E3016253484003A4DB5 /* NSMutableArray+Shuffable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffable.h"; sourceTree = "<group>"; };
 		4E9A3E3116253484003A4DB5 /* NSMutableArray+Shuffable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffable.m"; sourceTree = "<group>"; };
+		4EA3605517386FEC00AF9503 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		4EA36057173870A500AF9503 /* small icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small icon.png"; sourceTree = "<group>"; };
+		4EA36059173870A700AF9503 /* large icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "large icon.png"; sourceTree = "<group>"; };
+		4EA3605B1738713500AF9503 /* logo_chimera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_chimera.png; sourceTree = "<group>"; };
+		4EA3605C1738713500AF9503 /* logo_wildswipe-130x100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_wildswipe-130x100.png"; sourceTree = "<group>"; };
 		4EAD083E1734E26500DE5EBE /* PurchaseScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseScreenViewController.h; sourceTree = "<group>"; };
 		4EAD083F1734E26500DE5EBE /* PurchaseScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseScreenViewController.m; sourceTree = "<group>"; };
 		4ED1589F172E863000801970 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
@@ -225,7 +234,6 @@
 		4EE0132F17306CDF00934896 /* PaymentProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentProcessor.m; sourceTree = "<group>"; };
 		4EE013311730BA6700934896 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		4EE013321730BA6700934896 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
-		4EE013351730BC5800934896 /* logo_chimera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_chimera.png; sourceTree = "<group>"; };
 		4EE013371730BCDA00934896 /* ideo_60x60_white_0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ideo_60x60_white_0002.png; sourceTree = "<group>"; };
 		4EE013391730BD3D00934896 /* ligne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ligne.png; sourceTree = "<group>"; };
 		4EF43647173217850002E01E /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Appirater.h; path = AppiRater/Appirater.h; sourceTree = "<group>"; };
@@ -363,6 +371,9 @@
 		4E898C1515FA989D000E9677 = {
 			isa = PBXGroup;
 			children = (
+				4EA36059173870A700AF9503 /* large icon.png */,
+				4EA36057173870A500AF9503 /* small icon.png */,
+				4EA3605517386FEC00AF9503 /* Default@2x.png */,
 				4E898C2A15FA989D000E9677 /* Chimera */,
 				4E898C2315FA989D000E9677 /* Frameworks */,
 				4E898C2115FA989D000E9677 /* Products */,
@@ -461,9 +472,10 @@
 		4E898C4715FAC613000E9677 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				4EA3605B1738713500AF9503 /* logo_chimera.png */,
+				4EA3605C1738713500AF9503 /* logo_wildswipe-130x100.png */,
 				4EE013391730BD3D00934896 /* ligne.png */,
 				4EE013371730BCDA00934896 /* ideo_60x60_white_0002.png */,
-				4EE013351730BC5800934896 /* logo_chimera.png */,
 				4EE013311730BA6700934896 /* settings@2x.png */,
 				4EE013321730BA6700934896 /* settings.png */,
 				4E60E3E9160AD0BD003476EC /* background_0001.png */,
@@ -774,9 +786,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4E898C1F15FA989D000E9677 /* Chimera */ = {
+		4E898C1F15FA989D000E9677 /* Wild Swipe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4E898C4415FA989D000E9677 /* Build configuration list for PBXNativeTarget "Chimera" */;
+			buildConfigurationList = 4E898C4415FA989D000E9677 /* Build configuration list for PBXNativeTarget "Wild Swipe" */;
 			buildPhases = (
 				4E898C1C15FA989D000E9677 /* Sources */,
 				4E898C1D15FA989D000E9677 /* Frameworks */,
@@ -787,7 +799,7 @@
 			);
 			dependencies = (
 			);
-			name = Chimera;
+			name = "Wild Swipe";
 			productName = Chimera;
 			productReference = 4E898C2015FA989D000E9677 /* Chimera.app */;
 			productType = "com.apple.product-type.application";
@@ -837,7 +849,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4E898C1F15FA989D000E9677 /* Chimera */,
+				4E898C1F15FA989D000E9677 /* Wild Swipe */,
 			);
 		};
 /* End PBXProject section */
@@ -904,7 +916,6 @@
 				4EE01320172F396200934896 /* cheering.mp3 in Resources */,
 				4EE013331730BA6700934896 /* settings@2x.png in Resources */,
 				4EE013341730BA6700934896 /* settings.png in Resources */,
-				4EE013361730BC5800934896 /* logo_chimera.png in Resources */,
 				4EE013381730BCDA00934896 /* ideo_60x60_white_0002.png in Resources */,
 				4EE0133A1730BD3D00934896 /* ligne.png in Resources */,
 				4EF43698173217860002E01E /* Appirater.podspec in Resources */,
@@ -931,6 +942,11 @@
 				4ED24C3A1733A24C0024AE01 /* button.png in Resources */,
 				4ED24C3C173493280024AE01 /* button-pressed.png in Resources */,
 				4ED24C3E173493690024AE01 /* animals-group.png in Resources */,
+				4EA3605617386FEC00AF9503 /* Default@2x.png in Resources */,
+				4EA36058173870A500AF9503 /* small icon.png in Resources */,
+				4EA3605A173870A700AF9503 /* large icon.png in Resources */,
+				4EA3605D1738713500AF9503 /* logo_chimera.png in Resources */,
+				4EA3605E1738713500AF9503 /* logo_wildswipe-130x100.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1320,7 +1336,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E898C4415FA989D000E9677 /* Build configuration list for PBXNativeTarget "Chimera" */ = {
+		4E898C4415FA989D000E9677 /* Build configuration list for PBXNativeTarget "Wild Swipe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4E898C4515FA989D000E9677 /* Debug */,
