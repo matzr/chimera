@@ -400,9 +400,9 @@
 		4E898C2A15FA989D000E9677 /* Chimera */ = {
 			isa = PBXGroup;
 			children = (
+				4EE013491732165400934896 /* AppiRater */,
 				4E898C3315FA989D000E9677 /* AppDelegate.h */,
 				4E898C3415FA989D000E9677 /* AppDelegate.m */,
-				4EE013491732165400934896 /* AppiRater */,
 				4E898C3F15FA989D000E9677 /* FlipsideViewController.h */,
 				4E898C4015FA989D000E9677 /* FlipsideViewController.m */,
 				4E898C3915FA989D000E9677 /* MainStoryboard_iPad.storyboard */,
