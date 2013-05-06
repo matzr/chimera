@@ -52,7 +52,7 @@ static AppDelegate *_instance;
     [Crashlytics startWithAPIKey:@"7e3a885f3571e836c73ceff201073edd359e84d5"];
     
     
-    [Appirater setAppId:@"643073397"];
+    [Appirater setAppId:@"645397315"];
     [Appirater setDaysUntilPrompt:2];
     [Appirater setUsesUntilPrompt:10];
     [Appirater setSignificantEventsUntilPrompt:-1];

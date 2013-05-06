@@ -24,7 +24,7 @@
     if ([SKPaymentQueue canMakePayments]) {
         SKProductsRequest *request= [[SKProductsRequest alloc]
                                      initWithProductIdentifiers:
-                                     [NSSet setWithObject: @"CHIMERA_IMAGEPACK_001"]];
+                                     [NSSet setWithObject: @"WILDSWIPE_PACK001"]];
         request.delegate = self;
         [request start];
     }
