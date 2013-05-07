@@ -175,7 +175,7 @@
 		4E8810A9160A904200578D34 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		4E8810AC160A90C900578D34 /* app-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon@2x.png"; path = "../app-icon@2x.png"; sourceTree = "<group>"; };
 		4E8810AE160A90CC00578D34 /* app-icon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "app-icon@1x.png"; path = "../app-icon@1x.png"; sourceTree = "<group>"; };
-		4E898C2015FA989D000E9677 /* Chimera.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chimera.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E898C2015FA989D000E9677 /* Wild Swipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wild Swipe.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E898C2415FA989D000E9677 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4E898C2615FA989D000E9677 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4E898C2815FA989D000E9677 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -383,7 +383,7 @@
 		4E898C2115FA989D000E9677 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4E898C2015FA989D000E9677 /* Chimera.app */,
+				4E898C2015FA989D000E9677 /* Wild Swipe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -801,7 +801,7 @@
 			);
 			name = "Wild Swipe";
 			productName = Chimera;
-			productReference = 4E898C2015FA989D000E9677 /* Chimera.app */;
+			productReference = 4E898C2015FA989D000E9677 /* Wild Swipe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1317,8 +1317,8 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "EFDCA37F-2560-4F88-A862-A00A40D66DC7";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EFDCA37F-2560-4F88-A862-A00A40D66DC7";
+				PROVISIONING_PROFILE = "785A8891-3C09-4D19-AA10-F20FC9C52863";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "785A8891-3C09-4D19-AA10-F20FC9C52863";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
