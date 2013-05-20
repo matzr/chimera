@@ -62,6 +62,10 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (IBAction)restorePurchase:(id)sender {
+    [[AppDelegate instance].paymentProcessor restoreTransactions];
+}
+
 
 -(void)purchaseFailed:(NSNotification*)notification {
 }

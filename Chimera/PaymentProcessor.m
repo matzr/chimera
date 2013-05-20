@@ -63,7 +63,7 @@
 -(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {
     NSLog(@"-(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue {");
     for (SKPaymentTransaction *transaction in [queue transactions]) {
-        if ([transaction.payment.productIdentifier isEqualToString:@"CHIMERA_IMAGEPACK_001"] && transaction.transactionState == SKPaymentTransactionStatePurchased) {
+        if ([transaction.payment.productIdentifier isEqualToString:@"WILDSWIPE_PACK001"] && ((transaction.transactionState == SKPaymentTransactionStatePurchased)|| (transaction.transactionState == SKPaymentTransactionStateRestored))) {
             [[AppDelegate instance].tracker trackEventWithCategory:@"Purchase" withAction:@"restoredPurchase" withLabel:nil withValue:nil];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"purchaseSucceeded" object:self];
         }
@@ -82,6 +82,9 @@
     SKProduct *selectedProduct = [self.products objectAtIndex:0];
     SKPayment *payment = [SKPayment paymentWithProduct:selectedProduct];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+-(void)restoreTransactions {
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 

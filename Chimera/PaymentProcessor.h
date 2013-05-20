@@ -14,5 +14,6 @@
 
 -(void)requestProductDetails;
 -(void)purchasePack1;
+-(void)restoreTransactions;
 
 @end

@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *purchaseMessageLabel;
 - (IBAction)purchasePack1:(id)sender;
 - (IBAction)back:(id)sender;
+- (IBAction)restorePurchase:(id)sender;
 
 @end
